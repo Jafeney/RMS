@@ -11,9 +11,9 @@ var gulp = require('gulp'),                         // gulp核心模块
 
 // 处理less
 gulp.task('styles', function() {
-	return gulp.src('src/less/**/*.less')
+	return gulp.src(['src/less/**/*.less','!src/less/users/common/**/*.less'])
 		.pipe($.less())
-		.pipe($.autoprefixer('last 2 version','safari 5','ie 8','ie 9','opera 12.1','ios 6','android 4'))
+		.pipe($.autoprefixer('last 2 version'))
 		.pipe(gulp.dest(CSS_DEST))
 		.pipe($.rename({
 			suffix: '.min'
@@ -61,9 +61,11 @@ gulp.task('images', function() {
 
 // 处理html
 gulp.task('htmls', function() {
-	return gulp.src('src/html/**/*.html')
+	return gulp.src('views/**/*.ejs')
+		.pipe($.ejs())
 		.pipe($.rename({
-			suffix: '.min'
+			suffix: '.min',
+			extname: '.html'
 		}))
 		.pipe($.minifyHtml())
 		.pipe(gulp.dest(HTML_DEST))
@@ -75,7 +77,7 @@ gulp.task('htmls', function() {
 
 // 清理build目录
 gulp.task('clean', function() {
-	return gulp.src([HTML_DEST,JS_DEST,CSS_DEST,IMG_DEST], {
+	return gulp.src([HTML_DEST,JS_DEST+'/users',JS_DEST+'/admin',CSS_DEST+'/users',CSS_DEST+'/admin',IMG_DEST,], {
 		read: false
 	})
 	.pipe($.clean())
@@ -98,6 +100,9 @@ gulp.task('watch', function() {
 
 	// 监听livereload
 	$.livereload.listen();
+
+	// 监听html
+	gulp.watch('views/**/*.ejs', ['htmls']);
 
 	// 监听less
 	gulp.watch('src/less/**/*.less', ['styles']);
