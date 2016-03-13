@@ -1,4 +1,4 @@
-var navbar = require('../../../public/js/users/common/navbar.js');
+var navbar = require('../../../public/js/_util/navbar.js');
 
 var IndexModule = (function() {
 	var init = function() {
