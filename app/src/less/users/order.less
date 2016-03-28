@@ -1,0 +1,223 @@
+@import "./common/common.less";
+
+html,body {
+	background-color: @g-color-grey9;
+}
+
+.datepicker {
+
+	.title {
+		padding-left: 30rem/@g-base;
+		.fontSize(24);
+		color: @g-color-grey3;
+		height: 60rem/@g-base;
+		line-height: 60rem/@g-base;
+		background-color: @g-color-grey9;
+	}
+	.controller {
+		padding:24rem/@g-base 30rem/@g-base;
+		padding-bottom: 30rem/@g-base;
+		border-top: 1px solid @g-color-grey6;
+		border-bottom: 1px solid @g-color-grey6;
+		background-color: #fff;
+	}
+	.dateList {
+		width: 100%;
+		.fontSize(26);
+		text-align: center;
+
+		th {
+			text-align: center;
+			line-height: 70rem/@g-base; 
+			color: @g-color-grey3;
+		}
+
+		td {
+			width: 65rem/@g-base;
+			height: 65rem/@g-base;
+			line-height: 65rem/@g-base; 
+			color: @g-color-grey1;
+
+			span {
+				width: 60rem/@g-base;
+				height: 60rem/@g-base;
+				line-height: 60rem/@g-base; 
+				color: @g-color-grey1;
+
+				&.active {
+					display: inline-block;
+					color: #fff;
+					background-color: @g-color-red;
+					border-radius: 30rem/@g-base;
+				}
+			}
+		}
+	}
+	.time {
+		margin-top: 15rem/@g-base;
+		width: 100%;
+		height: 65rem/@g-base;
+		line-height: 65rem/@g-base;
+		border: 1px solid @g-color-grey6;
+		border-radius: 6px;
+		.fontSize(0);
+
+		span {
+			width: 50%;
+			height: 100%;
+			display: inline-block;
+			vertical-align: top;
+			.fontSize(24);
+			color: @g-color-grey2;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		span:first-child {
+			border-right: 1px solid @g-color-grey6;
+			color: @g-color-red;
+		}
+	}
+}
+
+.form {
+	margin-top: 30rem/@g-base;
+	padding: 0 30rem/@g-base;
+	border-top: 1px solid @g-color-grey6;
+	border-bottom: 1px solid @g-color-grey6;
+	background-color: #fff;
+
+	.input-number {
+		border-bottom: 1px solid @g-color-grey6;
+		height: 70rem/@g-base;
+		line-height: 70rem/@g-base;
+		.fontSize(24);
+		color: @g-color-grey2;
+
+		select {
+			float: right;
+			border: 0;
+			outline: none;
+			margin-top: 15rem/@g-base;
+			background-color: #fff;
+			.fontSize(22);
+			color: @g-color-grey2;
+		}
+	}
+	.input-name {
+		height: 70rem/@g-base;
+		line-height: 70rem/@g-base;
+		.fontSize(24);
+		color: @g-color-grey2;
+		border-bottom: 1px solid @g-color-grey6;
+
+		.sex {
+			float: right;
+
+			span {
+				margin-left: 15rem/@g-base;
+				display: inline-block;
+				color: @g-color-grey5;
+
+				&.active {
+					color: @g-color-red;
+				}
+			}
+
+			i {
+				margin-right: 10rem/@g-base;
+			}
+		}
+	}
+
+	.input-phone {
+		height: 70rem/@g-base;
+		line-height: 70rem/@g-base;
+		.fontSize(24);
+		color: @g-color-grey2;
+	}
+}
+
+.submit {
+	margin-top: 100rem/@g-base;
+	margin-left: 25rem/@g-base;
+	width: 700rem/@g-base;
+	height: 75rem/@g-base;
+	line-height: 75rem/@g-base;
+	vertical-align: top;
+	.fontSize(24);
+	color: @g-color-grey2;
+	box-sizing: border-box;
+	border: 1px solid @g-color-grey6;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #fff;
+}
+
+.mask {
+	position: fixed;
+	z-index: 99999;
+	background-color: rgba(0,0,0,.6);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	.main {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 50%;
+		background-color: #fff;
+
+		h3 {
+			.fontSize(26);
+			color: @g-color-grey3;
+			height: 65rem/@g-base;
+			line-height: 68rem/@g-base;
+			padding-left: 30rem/@g-base;
+			border-bottom: 1px solid @g-color-grey6;
+			background-color: @g-color-grey9;
+		}
+
+		.icon-remove {
+			position: absolute;
+			right: 5rem/@g-base;
+			top: 8rem/@g-base;
+			width: 60rem/@g-base;
+			height: 50rem/@g-base;
+			line-height: 50rem/@g-base;
+			text-align: center;
+			color: @g-color-grey3;
+			.fontSize(32);
+		}
+
+		ul {
+			background-color: #fff;
+			padding: 24rem/@g-base 0;
+			padding-left: 24rem/@g-base;
+			.fontSize(0);
+		}
+
+		.time-item {
+			display: inline-block;
+			vertical-align: top;
+			.fontSize(24);
+			width: 140rem/@g-base;
+			height: 60rem/@g-base;
+			line-height: 60rem/@g-base;
+			color: @g-color-grey2;
+			text-align: center;
+			box-sizing: border-box;
+
+			&.active {
+				border: 1px solid @g-color-red;
+				border-radius: 6rem/@g-base;
+				color: @g-color-red;
+			}
+		}
+	}
+}
+
+

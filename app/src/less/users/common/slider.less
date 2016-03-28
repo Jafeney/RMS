@@ -1,0 +1,71 @@
+// @desc    slider 轮播
+// @author  李怡志 <732812352@qq.com>
+// @date    2015-09-24
+.slider(@w: 100%, @h: auto) {
+    .slider-outer {
+        position: relative;
+
+        width: @w;
+        height: @h;
+        overflow: hidden;
+        .slider-wrap {
+            position: absolute;
+
+            height: 100%;
+            li {
+                float: left;
+                width: @w;
+                height: 100%;
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+
+                    border: 0;
+                }
+            }
+        }
+    }
+    .slider-status {
+        position: relative;
+
+        height: .5rem;
+        padding-top: .05px;
+        margin-top: -1rem;
+
+        text-align: center;
+        span {
+            display: inline-block;
+            width: .4rem;
+            height: .4rem;
+            margin-right: .4rem;
+
+            -webkit-border-radius: 999rem;
+            background-color: #ccc;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .sel {
+            background-color: #f06;
+        }
+    }
+    .slider-index {
+        position: absolute;
+        top: 650/@g-base;
+        right: 24/@g-base;
+
+        padding: 4/@g-base 14/@g-base;
+
+        font-size: 24/@g-base;
+
+        color: #fff;
+        border-radius: 18/@g-base;
+        background-color: rgba(0,0,0,.4);
+    }
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./common/head.ejs', { module: "card" }) %>
+<body>
+	
+	<section class="pt-page-scaleUpCenter" id="J_container">
+		<div class="card-list" id="J_cardList"></div>
+	</section>
+
+	<script type="text/template" id="cardList-tpl">
+		<ul>
+		{@each lists as item}
+			<li class="card-item">
+				<h2>${item.name}</h2>
+				<p>${item.person}</p>
+				<p>${item.money}</p>
+				<p>${item.time}</p>
+				<p>${item.state}</p>
+			</li>
+		{@/each}
+		</ul>
+	</script>
+	
+	<!-- footer -->
+	<%- include('./common/footer-sub.ejs', { module: "card" }) %>	
+	<!-- /footer -->
+
+</body>
+</html>
+

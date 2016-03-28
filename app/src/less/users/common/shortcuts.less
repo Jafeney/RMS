@@ -1,0 +1,259 @@
+.clearfix() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.hidden() {
+    display: none !important;
+    visibility: hidden;
+}
+
+.line1() {
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.line2() {
+    display: -webkit-box;
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line3() {
+    display: -webkit-box;
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.linex(@num) {
+    display: -webkit-box;
+    overflow: hidden;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @num;
+}
+
+.size(@thesize) {
+    width: @thesize;
+    height: @thesize;
+}
+
+.size(@width, @height) {
+    width: @width;
+    height: @height;
+}
+
+.border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.background-size(@size: 100% auto) {
+    -webkit-background-size: @size;
+            background-size: @size;
+}
+
+.box-sizing(@type: border-box) {
+    -webkit-box-sizing: @type;
+       -moz-box-sizing: @type;
+        -ms-box-sizing: @type;
+            box-sizing: @type;
+}
+
+.text-shadow(@shadow: 0 1px 3px rgba(0, 0, 0, .25)) {
+    text-shadow: @shadow;
+}
+
+.box-shadow(@shadow: 1px 1px 2px rgba(0, 0, 0, .25)) {
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow;
+            box-shadow: @shadow;
+}
+
+.filter(@filter: grayscale(100%)) {
+    -webkit-filter: @filter;
+       -moz-filter: @filter;
+        -ms-filter: @filter;
+         -o-filter: @filter;
+            filter: @filter;
+}
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+       -moz-transition: @transition;
+            transition: @transition;
+}
+
+.rotate(@rotation) {
+    -webkit-transform: rotate(@rotation);
+       -moz-transform: rotate(@rotation);
+         -o-transform: rotate(@rotation);
+            transform: rotate(@rotation);
+}
+
+.scale(@factor) {
+    -webkit-transform: scale(@factor);
+       -moz-transform: scale(@factor);
+        -ms-transform: scale(@factor);
+         -o-transform: scale(@factor);
+            transform: scale(@factor);
+}
+
+.skew(@deg, @deg2) {
+    -webkit-transform: skew(@deg, @deg2);
+       -moz-transform: skew(@deg, @deg2);
+        -ms-transform: skew(@deg, @deg2);
+         -o-transform: skew(@deg, @deg2);
+            transform: skew(@deg, @deg2);
+}
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+       -moz-transition: @transition;
+        -ms-transition: @transition;
+         -o-transition: @transition;
+            transition: @transition;
+}
+
+.translate(@x, @y: 0) {
+    -webkit-transform: translate(@x, @y);
+       -moz-transform: translate(@x, @y);
+        -ms-transform: translate(@x, @y);
+         -o-transform: translate(@x, @y);
+            transform: translate(@x, @y);
+}
+
+.translate3d(@x, @y: 0, @z: 0) {
+    -webkit-transform: translate3d(@x, @y, @z);
+       -moz-transform: translate3d(@x, @y, @z);
+        -ms-transform: translate3d(@x, @y, @z);
+         -o-transform: translate3d(@x, @y, @z);
+            transform: translate3d(@x, @y, @z);
+}
+
+.perspective(@value: 1000) {
+    -webkit-perspective: @value;
+       -moz-perspective: @value;
+        -ms-perspective: @value;
+            perspective: @value;
+}
+
+.placeholder(@color: #ddd) {
+    :-moz-placeholder {
+        color: @color;
+    }
+    ::-webkit-input-placeholder {
+        color: @color;
+    }
+}
+
+#gradient {
+    .horizontal (@start-color, @end-color) {
+        /* Konqueror */
+        background-image:  -khtml-gradient(linear, left top, right top, from(@start-color), to(@end-color));
+        /* FF 3.6+ */
+        background-image:    -moz-linear-gradient(left, @start-color, @end-color);
+        /* IE10 */
+        background-image:     -ms-linear-gradient(left, @start-color, @end-color);
+        /* Safari 4+, Chrome 2+ */
+        background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @start-color), color-stop(100%, @end-color));
+        /* Safari 5.1+, Chrome 10+ */
+        background-image: -webkit-linear-gradient(left, @start-color, @end-color);
+        /* Opera 11.10 */
+        background-image:      -o-linear-gradient(left, @start-color, @end-color);
+        /* IE10+ */
+        background-image:     -ms-linear-gradient(left, @start-color 0%, @end-color 100%);
+        /* the standard */
+        background-image:         linear-gradient(left, @start-color, @end-color);
+        background-repeat: repeat-x;
+    }
+    .vertical (@start-color, @end-color) {
+        background-image:  -khtml-gradient(linear, left top, left bottom, from(@start-color), to(@end-color));
+        background-image:    -moz-linear-gradient(@start-color, @end-color);
+        background-image:     -ms-linear-gradient(@start-color, @end-color);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start-color), color-stop(100%, @end-color));
+        background-image: -webkit-linear-gradient(@start-color, @end-color);
+        background-image:      -o-linear-gradient(@start-color, @end-color);
+        background-image:     -ms-linear-gradient(top, @start-color 0%, @end-color 100%);
+        background-image:         linear-gradient(@start-color, @end-color);
+        background-repeat: repeat-x;
+    }
+}
+
+.flexbox() {
+    /* flex container */
+    display: -webkit-box;
+    display:    -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display:         flex;
+}
+
+.flex(@values: 0 1 auto) {
+    /* flex item */
+    /* flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto */
+    -webkit-box-flex: @values;
+       -moz-box-flex: @values;
+    -webkit-flex: @values;
+        -ms-flex: @values;
+            flex: @values;
+}
+
+.order(@val: 0) {
+    -webkit-box-ordinal-group: @val;
+       -moz-box-ordinal-group: @val;
+    -ms-flex-order: @val;
+    -webkit-order: @val;
+            order: @val;
+}
+
+// user select 不允许用户选中页面中文字
+.user-select-none() {
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+        -ms-user-select: none;
+    /* IE 10+ */
+            user-select: none;
+}
+
+
+
+.rem(@name,@font-size){
+    @{name}:@font-size/46.875 * 1rem;
+}
+.px(@name,@font-size){
+    @{name}: (@font-size/2)*1px;
+    [data-dpr="2"] & {
+         @{name}: @font-size*1px ;
+    }
+    [data-dpr="3"] & {
+         @{name}: (@font-size /2* 3)*1px;
+    }
+}
+.font-size(@font-size) {
+   .px(font-size,@font-size);
+}
+.border-width(@font-size){
+    border-width: (@font-size)* 1px;
+    [data-dpr="2"] & {
+         border-width: @font-size/46.875 * 1rem;
+    }
+    [data-dpr="3"] &{
+         border-width: @font-size/46.875 * 1rem;
+    }
+}

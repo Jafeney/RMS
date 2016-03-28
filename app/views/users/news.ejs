@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./common/head.ejs', { module: "news" }) %>
+<body>
+
+	<section class="easeInLeft animated-zing" id="J_container">
+		<!-- /news -->
+		<section class="news">
+			<div id="J_news"></div>
+			<p class="load-more" id="J_loadMore">加载更多 <i class="icon-refresh"></i></p>
+		</section>
+		<!-- /news -->
+	</section>
+	
+	<!-- news template -->
+	<script type="text/template" id="news-tpl">
+		<ul class="news-list">
+		{@each lists as item}
+			<li class="item J_news-item" data-id="${item.id}">
+				<div class="img-box"><img use-lazyload data-webp="${item.img}" data-src="${item.img}" src="http://s0.husor.cn/image/blank.png" /></div>
+				<div class="img-info">
+					<p class="title">${item.title}</p>
+					<p class="content">${item.content}</p>
+					<p class="time"><i class="icon-time"></i>${item.time}</p>
+				</div>
+			</li>
+		{@/each}
+		</ul>
+	</script>
+	<!-- /news template -->
+	
+	<!-- footer -->
+	<%- include('./common/footer.ejs', { module: "news" }) %>	
+	<!-- /footer -->
+
+</body>
+</html>
+

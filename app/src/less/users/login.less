@@ -1,0 +1,52 @@
+@import "./common/common.less";
+
+html,body {
+	padding-bottom: 0;
+	background: @g-color-grey9;
+	height: 100%;
+}
+
+.login-input {
+	padding-top: 50rem/@g-base;
+	margin-bottom: 20rem/@g-base;
+	.fontSize(26);
+	color: @g-color-grey2;
+
+	li {
+		height: 75rem/@g-base;
+		line-height: 75rem/@g-base;
+		border-bottom: 1px solid @g-color-grey6;
+		background-color: #fff;
+
+		i {
+			margin-left: 30rem/@g-base;
+			margin-right: 15rem/@g-base;
+		}
+
+		span {
+			float: right;
+			margin-right: 24rem/@g-base;
+			.fontSize(24);
+		}
+	}
+
+	li:first-child {
+		border-top: 1px solid @g-color-grey6;
+	}
+}
+
+.login {
+	margin-top: 100rem/@g-base;
+	margin-left: 25rem/@g-base;
+	width: 700rem/@g-base;
+	height: 75rem/@g-base;
+	line-height: 75rem/@g-base;
+	vertical-align: top;
+	.fontSize(24);
+	color: @g-color-grey2;
+	box-sizing: border-box;
+	border: 1px solid @g-color-grey6;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #fff;
+}

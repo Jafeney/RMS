@@ -1,0 +1,13 @@
+<%
+    var _module = 'index';
+    try{
+        _module = module;
+    }catch(e){
+        _module = 'index';
+    }
+%>
+<footer>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=CsAFG1m2xRyLwYnlaPgMC6u7EGQh5v00"></script>
+	<script src="../../js/lib/zepto.min.js"></script>
+	<script src="../../js/users/<%= _module + '.js' %>"></script>
+</footer>

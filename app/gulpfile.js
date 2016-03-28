@@ -28,9 +28,10 @@ gulp.task('styles', function() {
 
 // 处理javascript 
 gulp.task('scripts', function() {
-	return gulp.src('src/js/**/*.js')
-		.pipe($.jshint('.jshintrc'))
-		.pipe($.jshint.reporter('default'))
+	// 注意：用于require的模块不需要编译，browserify会自动处理require的请求
+	return gulp.src(['src/js/**/*.js','!src/js/util/**/*.js'])
+		//.pipe($.jshint('.jshintrc'))
+		//.pipe($.jshint.reporter('default'))
 		.pipe($.browserify())
 		.pipe(gulp.dest(JS_DEST))
 		.pipe($.rename({

@@ -1,11 +1,147 @@
 <!DOCTYPE html>
 <html>
-	<%- include('./common/head.ejs', {title: "客户版首页"}) %>
+	<%- include('./common/head.ejs', { module: "index" }) %>
 <body>
-	<!-- header -->
-	<%- include('./common/navbar.ejs', {title: '主页'}) %>
-	<!-- /header -->	
 
-	<%- include('./common/footer.ejs') %>
+	<section class="fadeIn animated-fast" id="J_container">
+		<!-- slider -->
+		<div id="J_slider" class="slider"></div>
+		<!-- /slider -->
+		
+		<!-- /买手精选 -->
+		<section id="J_selected">
+		    <div class="xpg-hd"><i class="ico-star"></i>买手精选·<span class="date">今日</span>必买<span class="txt-buy"></span>
+		        <div class="exchange hidden">
+		            <p class="ch">明日</p>
+		            <p class="eng">TOMORROW</p>
+		        </div>
+		    </div>
+		    <div class="xpg-bd">
+		        <div class="hidden-scroll-bar">
+		            <div class="scroll-bar">
+		                <div class="xpg-bd-wrap"></div>
+		                <div class="xpg-bd-wrap hidden"></div>
+		            </div>
+		        </div>
+		    </div>
+		</section>
+		<!-- /买手精选 -->
+		
+		<!-- 热卖专场 -->
+		<section id="J_martShow" class="xpg-martshow">
+		    <h2 class="slogan">热卖专场·遇见就不要错过 </h2>
+		    <a href="javascript:;" class="xpg-martshow-more hidden">查看更多专场<i class="ico-arrow-down"></i></a>
+		</section>
+		<!-- /热卖专场 -->
+		
+		<!-- 产品列表 -->
+		<section id="J_productList" class="xpg-buy-product">
+		    <h2 class="slogan">心水好货·且买且珍惜</h2>
+		</section>
+		<!-- /产品列表 -->
+	</section>
+	
+	<!-- slider template -->
+	<script id="J_slider-tpl" type="text/template">
+	    <div id="J_slider-outer" class="slider-outer">
+	        <ul id="J_slider-wrap" class="slider-wrap">
+	            {@each ads as item, index}
+	            <li>
+	                <a href="javascript:;" data-href="${item.target}" data-style="display:block;" data-title="720-${item.title}">
+	            {@if index == 0}
+	            <img src="${item.img}" alt="${item.title}" />
+	            {@else}
+	            <img dataimg="${item.img}" alt="${item.title}" class="lazyimg"
+	                 src="http://b0.hucdn.com/img/common/blank.png"/>
+	            {@/if}
+	        </a>
+	            </li>
+	            {@/each}
+	        </ul>
+	    </div>
+	    <div id='J_slider-status' class="slider-status"></div>
+	</script>
+	<!-- /slider template -->
+
+	<!-- selected template -->
+	<script id="J_selected-tpl" type="text/template">
+	    {@each selectedList as it}
+	    <a class="xpg-pd" href="${it.url}" data-event_id="${it.event_id}">
+	        <div class="img-cnt">
+	            <img class="pd-pic" use-lazyload data-webp='${it.webp}' data-src="${it.img}" src="http://s0.husor.cn/image/blank.png" alt="${it.title}">
+	        </div>
+	        <div class="price-cnt"><span class="price">&yen;${it.price}</span> <span class="price-origin">&yen;${it.origin_price}</span></div>
+	    </a>
+	    {@/each}
+	</script>
+	<!-- /selected template -->
+	
+	<!-- martshow template -->
+	<script id="J_martShow-tpl" type="text/template">
+	    {@each martshowList as it}
+	    <div class="martshow-item">
+	        {@if it.img_url!==''}
+	        <a class="bnr" href="${it.target}" style="background-image:url(${it.img_url});" data-brand="${it.brand}">
+	            <i class="arrow"></i>
+	        </a>
+	        {@/if}
+	        <div class="hidden-scroll-bar" {@if it.img_url==='' } style="margin-top: .384rem;" {@/if}>
+	            <div class="scroll-bar">
+	                <div class="xpg-bd-wrap" style="width:${((it.itemLen+1)*218+18)/46.875}rem;">
+	                    {@each it.martshow_items as it2}
+	                    <a class="xpg-pd" href="${it2.url}">
+	                        <div class="img-cnt">
+	                            <img class="pd-pic" use-lazyload data-webp="${it2.webp}" data-src="${it2.img}" src="http://s0.husor.cn/image/blank.png" alt="">
+	                        </div>
+	                        <p class="title">${it2.title}</p>
+	                        <div class="price-cnt">&yen;${it2.price}</div>
+	                    </a>
+	                    {@/each}
+	                    <a href="${it.listURL}" class="xpg-pd-more" data-event_id="${it.event_id}">
+	                        <div class="center">
+	                            <p class="line1">查看全部
+	                            <p class="line2">See All</p>
+	                        </div>
+	                    </a>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    {@/each}
+	</script>
+	<!-- /martshow template -->
+	
+	<!-- productList template -->
+	<script id="J_productList-tpl" type="text/template">
+	    {@each martshowList2 as it}
+	    <div class="product-list">
+	        <a href="${it.url}" class="item-hd" data-event_id="${it.event_id}">
+	            <div class="img"><img class="logo" src="${it.brand_logo}" alt="${it.brand}"></div>
+	            <div class="info">
+	                <p class="brand">${it.brand}<span class="tag">${it.tag}</span></p>
+	                <p class="discount">{@each it.mj_promotion as item}<span>${item}</span>{@/each}</p>
+	            </div>
+	            <p class="more">${it.item_count}件新品<i class="ico-arrow-right"></i></p>
+	        </a>
+	        {@each it.martshow_items as it2}
+	        <a class="item " href="${it2.url}" data-iid="${it2.iid}">
+	            <div class="img-cnt"> <img alt="${it2.title}" use-lazyload data-webp="${it2.webp}" data-src="${it2.img}" src="http://s0.husor.cn/image/blank.png" style="opacity: 1;"> <i class="ico-soldout">已抢光</i> </div>
+	            <div class="info-cnt">
+	                <p class="title">${it2.title}</p>
+	                <div class="price"><span class="now">&yen;${it2.price}<span></span></span>
+	                    <span class="origin">&yen;${it2.price_ori}</span></div>
+	                <div class="btn btn-qiang">立即抢</div>
+	            </div>
+	        </a>
+	        {@/each}
+	    </div>
+	    {@/each}
+	</script>
+	<!-- /productList template -->
+	
+	<!-- footer -->
+	<%- include('./common/footer.ejs', { module: "index" }) %>
+	<!-- /footer -->
+
 </body>
 </html>

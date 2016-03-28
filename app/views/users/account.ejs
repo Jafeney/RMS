@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./common/head.ejs', { module: "account" }) %>
+<body>
+	
+	<section class="pt-page-scaleUpCenter" id="J_container">
+		<ul class="form-input">
+			<li><i class="icon-user"></i> <input type="text" id="J_username" placeholder="手机号" /> </li>
+			<li><i class="icon-lock"></i> <input type="number" id="J_code" placeholder="验证码" /> <span id="J_getCode">获取验证码</span></li>
+		</ul>
+
+		<div class="btn-operate" id="J_login">保存修改</div>
+	</section>
+	
+	<!-- footer -->
+	<%- include('./common/footer-sub.ejs', { module: "account" }) %>	
+	<!-- /footer -->
+
+</body>
+</html>
+

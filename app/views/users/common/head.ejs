@@ -1,9 +1,46 @@
 <%
-    var _title = '' ;
+    var _title = '精选';
+    var _module = "index";
     try{
-        _title = title ;
+        _module = module;
+        switch (_module) {
+            case "index":
+                _title = "精选";
+                break;
+            case "news":
+                _title = "动态";
+                break;
+            case "news-detail":
+                _title = "动态详情";
+                break;
+            case "order":
+                _title = "预定";
+                break;
+            case "me":
+                _title = "我";
+                break;
+            case "login":
+                _title = "登录";
+                break;
+            case "account":
+                _title = "账户信息";
+                break;
+            case "card":
+                _title = "优惠券";
+                break;
+            case "record":
+                _title = "消费纪录";
+                break;
+            case "about":
+                _title = "关于我们";
+                break;
+            default:
+                _title = "精选";
+                break;
+        }
     }catch(e){
-        _title = 'Hello Jafeney!';
+        _module = 'index';
+        _title = "精选";
     }
 %>
 <head>
@@ -38,5 +75,6 @@
     }(window);
     </script>
     <title><%= _title %></title>
-    <link rel="stylesheet" href="../../css/users/style.min.css" />
+    <link rel="stylesheet" href="../../css/users/<%= _module + ".min.css" %>" />
+    <link rel="stylesheet" href="../../fonts/font-awesome.min.css" />
 </head>

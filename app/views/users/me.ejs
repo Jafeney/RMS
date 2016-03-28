@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<%- include('./common/head.ejs', { module: "me" }) %>
+<body>
+
+	<section class="easeInLeft animated-zing" id="J_container">
+		<ul class="list-me">
+			<li class="J_sub-link" data-link="account" ><i class="icon-user"></i> 账户信息 <i class="icon-angle-right"></i></li>
+		</ul>
+
+		<ul class="list-other">
+			<li class="J_sub-link" data-link="card"><i class="icon-credit-card"></i> 优惠券 <i class="icon-angle-right"></i></li>
+			<li class="J_sub-link" data-link="record"><i class="icon-food"></i> 消费纪录 <i class="icon-angle-right"></i></li>
+			<li class="J_sub-link" data-link="about"><i class="icon-info-sign"></i> 关于 <i class="icon-angle-right"></i></li>
+		</ul>
+
+		<div class="login-out" id="J_login-out">退出登录</div>
+	</section>
+	
+	<!-- footer -->
+	<%- include('./common/footer.ejs', { module: "me" }) %>	
+	<!-- /footer -->
+
+</body>
+</html>
+

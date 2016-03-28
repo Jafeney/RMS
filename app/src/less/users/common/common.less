@@ -3,11 +3,21 @@
 @import "global.less";
 @import "size.less";
 @import "button.less";
-@import "navbar.less";
 @import "color.less";
+@import "slider.less";
+@import "shortcuts.less";
+@import "footer.less";
+@import "animate.less";
 
 .reset();
 .global();
-.navbar();
+.footer();
 
-
+.text-overflow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	white-space: nowrap;
+}
