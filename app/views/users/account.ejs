@@ -4,9 +4,27 @@
 <body>
 	
 	<section class="pt-page-scaleUpCenter" id="J_container">
+		
+		<div class="img-box">
+			<img id="user-head" src="http://avatar.csdn.net/F/8/E/1_u011413061.jpg" />
+			<input type="file" accept="image/*" id="upload-img" />
+		</div>
+
 		<ul class="form-input">
-			<li><i class="icon-user"></i> <input type="text" id="J_username" placeholder="手机号" /> </li>
-			<li><i class="icon-lock"></i> <input type="number" id="J_code" placeholder="验证码" /> <span id="J_getCode">获取验证码</span></li>
+			<li><label>姓名</label> <input type="text" id="J_username" value="Jafeney" placeholder="姓名" /> </li>
+			<li>
+				<label>性别</label> 
+				<select>
+					<option>男</option>
+					<option>女</option>
+				</select> 
+			</li>
+			
+		</ul>
+
+		<ul class="form-input">
+			<li><label>所在城市</label>  <input type="text" id="J_username" placeholder="地区" value="杭州" /> </li>
+			<li><label>积分</label>  <input type="text" id="J_username" placeholder="积分" value="10000" disabled /></li>
 		</ul>
 
 		<div class="btn-operate" id="J_login">保存修改</div>

@@ -3,6 +3,7 @@ var template = require('../util/template');
 var lazyload = require('../util/lazyload')();
 var footer = require('../util/footer');
 var config = require('../util/config');
+var data = require('../../../modules/database/index.tmp.js');
 
 var indexModule = (function($) {
 	// 模块内全局变量
@@ -69,8 +70,7 @@ var indexModule = (function($) {
 		        item.url = getBeibeiListURL(item.event_id, item.iid);
 		        item.price = toIntPrice(item.price);
 		        item.origin_price = toIntPrice(item.origin_price);
-		        item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		        item.img += '!210x210.jpg'; //压缩商品图片
+		        item.webp = item.img; 
 		    }
 		    var tpl = $("#J_selected-tpl").html();
 		    var html = template(tpl, {
@@ -89,8 +89,8 @@ var indexModule = (function($) {
 		        item.url = getBeibeiListURL(item.event_id, item.iid);
 		        item.price = toIntPrice(item.price);
 		        item.origin_price = toIntPrice(item.origin_price);
-		        item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		        item.img += '!210x210.jpg'; //压缩商品图片
+		        item.webp = item.img;
+		       
 		    }
 		    var tpl = $("#J_selected-tpl").html();
 		    var html = template(tpl, {
@@ -124,8 +124,7 @@ var indexModule = (function($) {
 		        } else {
 		            item.url = getBeibeiDetailURL(item.iid);
 		            item.price = toIntPrice(item.price);
-		            item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		            item.img += '!210x210.jpg'; //压缩商品图片
+		            item.webp = item.img;
 		        }
 		    }
 		    martshow[i].itemLen = martshowItem.length; //pop删除数组后，重新获取length
@@ -146,95 +145,14 @@ var indexModule = (function($) {
 		}
 	};
 
-	// 渲染martShowBelow 
-	var renderMartshowBelow = function(data) {
-		var martshow = data.martshow_lists;
-		var martshowLen = martshow.length;
-
-		for (var i = 0; i < martshowLen; i++) {
-		    var _martshow = martshow[i];
-		    var martshowItem = _martshow.martshow_items;
-		    martshow[i].itemLen = martshowItem.length;
-		    martshow[i].url = getBeibeiListURL(_martshow.event_id);
-		    for (var j = 0; j < martshow[i].itemLen; j++) {
-		        var item = martshowItem[j];
-		        if (j >= 4) {
-		            martshowItem.pop();
-		        } else {
-		            item.url = getBeibeiDetailURL(item.iid);
-		            item.price = toIntPrice(item.price);
-		            item.price_ori = toIntPrice(item.price_ori);
-		            item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		            item.img += '!210x210.jpg'; //压缩商品图片
-		        }
-		    }
-		}
-		var tpl = $("#J_productList-tpl").html();
-		var html = template(tpl, {
-		    martshowList2: martshow
-		});
-		$("#J_productList").append(html);
-		lazyload.getLazyImg();
-		loading = false;
-	};
-
 	// 获取广告位数据
 	var getAds = function() {
-		$.ajax({
-		    type: 'GET',
-		    url: 'http://sapi.beibei.com/resource/h5-ads-36_37.html',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'ads',
-		    cache: true,
-		    success: function(resp) {
-		        renderSlider(resp.new_cheap_banners);  
-		        getSelectedList({
-                    num: num,
-                    isInit: 1,
-                    ads: resp.new_cheap_insert_banners
-                });
-                getMartshowList(martshowNum);
-		    },
-		    error: function() {
-		        console.log("getAds error!!!");
-		    }
-		});
-	};
-
-	// 获取精选和专场数据
-	var getSelectedList = function(data) {
-		$.ajax({
-		    url: 'http://sapi.beibei.com/martshow/h5_mart_new_arrival/' + data.num + '-10-1-0.html',
-		    type: 'GET',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'BeibeiH5MartshowNewArrivalGet01',
-		    success: function(resp) {
-		        data.isInit && renderSelectedList(resp); //渲染精选数据
-		        renderMartshow(resp); //渲染专场数据
-		        renderInsertAds(data.ads);
-		        lazyload.getLazyImg();
-		        loading = false;
-		    },
-		    error: function(resp) {
-		        console.log("getSelectedList error!!!");
-		    }
-		})
-	};
-
-	// 获取martShowList的数据 
-	var getMartshowList = function(num) {
-		$.ajax({
-		    url: 'http://sapi.beibei.com/martshow/h5_mart_new_arrival/' + num + '-10-2-0.html',
-		    type: 'GET',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'BeibeiH5MartshowNewArrivalGet02',
-		    success: function(resp) {
-		        renderMartshowBelow(resp);
-		    },
-		    error: function(resp) {
-		        console.log("getMartshowList error!!!");
-		    }
-		});
+        renderSlider(data.new_cheap_banners);  
+        renderSelectedList(data);
+        renderMartshow(data);
+        renderInsertAds(data.new_cheap_insert_banners);
+        lazyload.getLazyImg();
+		loading = false;
 	};
 
 	// 事件监听

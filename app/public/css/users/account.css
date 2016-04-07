@@ -623,6 +623,7 @@ body {
   font-size: 0px;
 }
 .footerBar li {
+  position: relative;
   display: inline-block;
   width: 4rem;
   font-size: 10px;
@@ -668,11 +669,52 @@ body {
 .footerBar li.active {
   color: #ff4965;
 }
+.footerBar li .tag {
+  position: absolute;
+  z-index: 9;
+  top: 0.10666667rem;
+  left: 2.24rem;
+  display: inline-block;
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 0.32rem;
+  font-size: 10px;
+  line-height: 0.64rem;
+  background-color: #ff4965;
+  color: #fff;
+}
+[data-dpr="2"] .footerBar li .tag {
+  font-size: 20px;
+}
+[data-dpr="2.5"] .footerBar li .tag {
+  font-size: 25px;
+}
+[data-dpr="2.75"] .footerBar li .tag {
+  font-size: 28px;
+}
+[data-dpr="3"] .footerBar li .tag {
+  font-size: 30px;
+}
+[data-dpr="4"] .footerBar li .tag {
+  font-size: 40px;
+}
 html,
 body {
   padding-bottom: 0;
   background: #f9f9f9;
   height: 100%;
+}
+.img-box {
+  padding-top: 0.85333333rem;
+  text-align: center;
+}
+.img-box img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 1.6rem;
+}
+.img-box input {
+  display: none;
 }
 .form-input {
   padding-top: 1.06666667rem;
@@ -708,21 +750,34 @@ body {
 .form-input li span {
   float: right;
   margin-right: 0.512rem;
-  font-size: 12px;
+  line-height: 1.6rem;
 }
-[data-dpr="2"] .form-input li span {
+.form-input li input,
+.form-input li select {
+  float: right;
+  margin-right: 0.512rem;
+  margin-top: 0.42666667rem;
+  text-align: right;
+  color: #999;
+}
+.form-input li label {
+  font-size: 12px;
+  color: #666;
+  padding-left: 0.512rem;
+}
+[data-dpr="2"] .form-input li label {
   font-size: 24px;
 }
-[data-dpr="2.5"] .form-input li span {
+[data-dpr="2.5"] .form-input li label {
   font-size: 30px;
 }
-[data-dpr="2.75"] .form-input li span {
+[data-dpr="2.75"] .form-input li label {
   font-size: 33px;
 }
-[data-dpr="3"] .form-input li span {
+[data-dpr="3"] .form-input li label {
   font-size: 36px;
 }
-[data-dpr="4"] .form-input li span {
+[data-dpr="4"] .form-input li label {
   font-size: 48px;
 }
 .form-input li:first-child {

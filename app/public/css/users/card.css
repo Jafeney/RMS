@@ -623,6 +623,7 @@ body {
   font-size: 0px;
 }
 .footerBar li {
+  position: relative;
   display: inline-block;
   width: 4rem;
   font-size: 10px;
@@ -668,9 +669,150 @@ body {
 .footerBar li.active {
   color: #ff4965;
 }
+.footerBar li .tag {
+  position: absolute;
+  z-index: 9;
+  top: 0.10666667rem;
+  left: 2.24rem;
+  display: inline-block;
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 0.32rem;
+  font-size: 10px;
+  line-height: 0.64rem;
+  background-color: #ff4965;
+  color: #fff;
+}
+[data-dpr="2"] .footerBar li .tag {
+  font-size: 20px;
+}
+[data-dpr="2.5"] .footerBar li .tag {
+  font-size: 25px;
+}
+[data-dpr="2.75"] .footerBar li .tag {
+  font-size: 28px;
+}
+[data-dpr="3"] .footerBar li .tag {
+  font-size: 30px;
+}
+[data-dpr="4"] .footerBar li .tag {
+  font-size: 40px;
+}
 html,
 body {
   padding-bottom: 0;
   background: #f9f9f9;
   height: 100%;
+}
+.card-list {
+  font-size: 0px;
+  padding: 0.64rem 0.42666667rem;
+}
+[data-dpr="2"] .card-list {
+  font-size: 0px;
+}
+[data-dpr="2.5"] .card-list {
+  font-size: 0px;
+}
+[data-dpr="2.75"] .card-list {
+  font-size: 0px;
+}
+[data-dpr="3"] .card-list {
+  font-size: 0px;
+}
+[data-dpr="4"] .card-list {
+  font-size: 0px;
+}
+.card-list .card-item {
+  display: inline-block;
+  margin-left: 0.32rem;
+  margin-right: 0.32rem;
+  padding: 0.64rem 0.10666667rem;
+  vertical-align: top;
+  font-size: 12px;
+  width: 6.61333333rem;
+  text-align: center;
+  margin-top: 0.53333333rem;
+  border: 1px solid #ff4965;
+  border-radius: 12px;
+}
+[data-dpr="2"] .card-list .card-item {
+  font-size: 24px;
+}
+[data-dpr="2.5"] .card-list .card-item {
+  font-size: 30px;
+}
+[data-dpr="2.75"] .card-list .card-item {
+  font-size: 33px;
+}
+[data-dpr="3"] .card-list .card-item {
+  font-size: 36px;
+}
+[data-dpr="4"] .card-list .card-item {
+  font-size: 48px;
+}
+.card-list .card-item h2 {
+  font-size: 15px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0.68266667rem;
+  margin-top: 0.42666667rem;
+}
+[data-dpr="2"] .card-list .card-item h2 {
+  font-size: 30px;
+}
+[data-dpr="2.5"] .card-list .card-item h2 {
+  font-size: 38px;
+}
+[data-dpr="2.75"] .card-list .card-item h2 {
+  font-size: 41px;
+}
+[data-dpr="3"] .card-list .card-item h2 {
+  font-size: 45px;
+}
+[data-dpr="4"] .card-list .card-item h2 {
+  font-size: 60px;
+}
+.card-list .card-item p {
+  margin-top: 0.21333333rem;
+}
+.card-list .card-item .price {
+  margin-left: 0.21333333rem;
+  color: #ff4965;
+}
+.card-list .card-item .time {
+  color: #333;
+}
+.card-list .card-item .btn {
+  display: inline-block;
+  color: #fff;
+  background: #ff4965;
+  margin-top: 1.06666667rem;
+  margin-bottom: 0.42666667rem;
+  padding: 0.32rem 1.49333333rem;
+  border-radius: 0.74666667rem;
+  font-size: 12px;
+}
+[data-dpr="2"] .card-list .card-item .btn {
+  font-size: 24px;
+}
+[data-dpr="2.5"] .card-list .card-item .btn {
+  font-size: 30px;
+}
+[data-dpr="2.75"] .card-list .card-item .btn {
+  font-size: 33px;
+}
+[data-dpr="3"] .card-list .card-item .btn {
+  font-size: 36px;
+}
+[data-dpr="4"] .card-list .card-item .btn {
+  font-size: 48px;
+}
+.card-list .card-item .btn.disabled {
+  background-color: #cecece;
 }

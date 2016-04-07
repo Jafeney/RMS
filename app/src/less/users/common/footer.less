@@ -19,6 +19,7 @@
     .footerBar {
         .fontSize(0);
         li {
+            position: relative;
             display: inline-block;
             width: 750/4rem/@g-base;
             .fontSize(20);
@@ -32,6 +33,20 @@
             }
             &.active {
                 color: @g-color-red;
+            }
+            .tag {
+                position: absolute;
+                z-index: 9;
+                top: 5rem/@g-base;
+                left: 105rem/@g-base;
+                display: inline-block;
+                width: 30rem/@g-base;
+                height: 30rem/@g-base;
+                border-radius: 15rem/@g-base;
+                .fontSize(20);
+                line-height: 30rem/@g-base;
+                background-color: @g-color-red;
+                color: #fff;
             }
         }
     }

@@ -623,6 +623,7 @@ body {
   font-size: 0px;
 }
 .footerBar li {
+  position: relative;
   display: inline-block;
   width: 4rem;
   font-size: 10px;
@@ -667,6 +668,35 @@ body {
 }
 .footerBar li.active {
   color: #ff4965;
+}
+.footerBar li .tag {
+  position: absolute;
+  z-index: 9;
+  top: 0.10666667rem;
+  left: 2.24rem;
+  display: inline-block;
+  width: 0.64rem;
+  height: 0.64rem;
+  border-radius: 0.32rem;
+  font-size: 10px;
+  line-height: 0.64rem;
+  background-color: #ff4965;
+  color: #fff;
+}
+[data-dpr="2"] .footerBar li .tag {
+  font-size: 20px;
+}
+[data-dpr="2.5"] .footerBar li .tag {
+  font-size: 25px;
+}
+[data-dpr="2.75"] .footerBar li .tag {
+  font-size: 28px;
+}
+[data-dpr="3"] .footerBar li .tag {
+  font-size: 30px;
+}
+[data-dpr="4"] .footerBar li .tag {
+  font-size: 40px;
 }
 html,
 body {
@@ -887,6 +917,59 @@ body {
 }
 [data-dpr="4"] .review-item .info-box p {
   font-size: 44px;
+}
+.review-input {
+  margin-top: 10px;
+  background-color: #f9f9f9;
+  padding: 0.42666667rem;
+}
+.review-input input {
+  width: 11.30666667rem;
+  padding: 0.384rem 0.42666667rem;
+  font-size: 11px;
+  color: #666;
+  margin-left: 0.21333333rem;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+}
+[data-dpr="2"] .review-input input {
+  font-size: 22px;
+}
+[data-dpr="2.5"] .review-input input {
+  font-size: 28px;
+}
+[data-dpr="2.75"] .review-input input {
+  font-size: 30px;
+}
+[data-dpr="3"] .review-input input {
+  font-size: 33px;
+}
+[data-dpr="4"] .review-input input {
+  font-size: 44px;
+}
+.review-input .btn {
+  padding: 0.384rem 0.74666667rem;
+  border-radius: 5px;
+  font-size: 10px;
+  text-align: center;
+  margin-left: 0.10666667rem;
+  background-color: #ff4965;
+  color: #fff;
+}
+[data-dpr="2"] .review-input .btn {
+  font-size: 20px;
+}
+[data-dpr="2.5"] .review-input .btn {
+  font-size: 25px;
+}
+[data-dpr="2.75"] .review-input .btn {
+  font-size: 28px;
+}
+[data-dpr="3"] .review-input .btn {
+  font-size: 30px;
+}
+[data-dpr="4"] .review-input .btn {
+  font-size: 40px;
 }
 .load-more {
   padding: 0.42666667rem 1.06666667rem 0.85333333rem 1.06666667rem;

@@ -7,5 +7,60 @@ html,body {
 }
 
 .card-list {
-	
+	.fontSize(0);
+	padding: 30rem/@g-base 20rem/@g-base;
+
+	.card-item {
+		display: inline-block;
+		margin-left: 15rem/@g-base;
+		margin-right: 15rem/@g-base;
+		padding: 30rem/@g-base 5rem/@g-base;
+		vertical-align: top;
+		.fontSize(24);
+		width: 310rem/@g-base;
+		text-align: center;
+		margin-top: 25rem/@g-base;
+		border: 1px solid @g-color-red;
+		border-radius: 12px;
+
+		h2 {
+			.fontSize(30);
+			color: @g-color-grey1;
+			.text-overflow();
+			margin-bottom: 32rem/@g-base;
+			margin-top: 20rem/@g-base;
+		}
+
+		p {
+			margin-top: 10rem/@g-base;
+		}
+
+		.tag {
+
+		}
+
+		.price {
+			margin-left: 10rem/@g-base;
+			color: @g-color-red;
+		}
+
+		.time {
+			color: @g-color-grey1;
+		}
+
+		.btn {
+			display: inline-block;
+			color: #fff;
+			background: @g-color-red;
+			margin-top: 50rem/@g-base;
+			margin-bottom: 20rem/@g-base;
+			padding: 15rem/@g-base 70rem/@g-base;
+			border-radius: 35rem/@g-base;
+			.fontSize(24);
+
+			&.disabled {
+				background-color: @g-color-grey5;
+			}
+		}
+	}
 }

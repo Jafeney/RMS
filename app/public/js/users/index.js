@@ -1,9 +1,378 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+/**
+ * 首页临时数据的接口 
+ */
+
+var indexData = {
+	new_cheap_banners: [
+		{
+			begin: 1458748800,
+			end: 1459354810,
+			img: "/img/banner1.jpg",
+			priority: 0,
+			target: "http://jafeney.com",
+			title: "尖货1元秒"
+		},
+		{
+			begin: 1458748800,
+			end: 1459354810,
+			img: "/img/p10.jpg",
+			priority: 0,
+			target: "http://jafeney.com",
+			title: "尖货1元秒"
+		}
+	],
+	new_cheap_insert_banners: [
+		{
+			begin: 1458748800,
+			end: 1459354810,
+			img: "/img/banner1.jpg",
+			priority: 0,
+			target: "http://jafeney.com",
+			title: "尖货1元秒"
+		}
+	],
+	buyer_choice: {
+		today: [
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/c1.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/c2.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/c3.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/d1.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/d2.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			}
+		],
+		tomorrow: [
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/d3.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/d4.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/e1.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/e2.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			},
+			{
+				click_num: 3689,
+				desc: "",
+				discount: "",
+				event_id: 186839,
+				iid: 7673220,
+				img: "/img/e3.jpg",
+				origin_price: 12800,
+				price: 100,
+				product_id: 242186,
+				sold_num: 1092,
+				stock: 8,
+				title: "小兔米菲908撞色透气网布宝宝单鞋叫叫鞋15-20"
+			}
+		]
+	},
+	martshow_lists: [
+		{
+			brand: "恋采依",
+			brand_logo: "/img/logo.png",
+			event_id: 185380,
+			img_target: "",
+			img_url: "/img/e4.jpg",
+			item_count: 4,
+			martshow_items: [
+				{
+					iid: 7571257,
+					img: "/img/e5.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/e6.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m1.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m2.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m3.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m5.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+			],
+			mj_promotion: ["满189减30元","满269减50元"],
+			recommend: "童装",
+			tag: "童装"
+		},
+		{
+			brand: "恋采依",
+			brand_logo: "/img/logo.png",
+			event_id: 185380,
+			img_target: "",
+			img_url: "/img/g2.jpg",
+			item_count: 4,
+			martshow_items: [
+				{
+					iid: 7571257,
+					img: "/img/g3.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/g4.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/g5.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m6.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/m7.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/p6.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+			],
+			mj_promotion: ["满189减30元","满269减50元"],
+			recommend: "童装",
+			tag: "童装"
+		},
+		{
+			brand: "恋采依",
+			brand_logo: "/img/logo.png",
+			event_id: 185380,
+			img_target: "",
+			img_url: "/img/g6.jpg",
+			item_count: 4,
+			martshow_items: [
+				{
+					iid: 7571257,
+					img: "/img/g7.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/g8.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/g9.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/p7.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/p8.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+				{
+					iid: 7571257,
+					img: "/img/p9.jpg",
+					price: 11900,
+					price_ori: 42900,
+					title: "美食名称－爱心点心 美味 还吃 ",
+					use_width_img: false
+				},
+			],
+			mj_promotion: ["满189减30元","满269减50元"],
+			recommend: "童装",
+			tag: "童装"
+		}
+	]
+}	
+
+module.exports = indexData;
+},{}],2:[function(require,module,exports){
 var Slider = require('../util/slider');
 var template = require('../util/template');
 var lazyload = require('../util/lazyload')();
 var footer = require('../util/footer');
 var config = require('../util/config');
+var data = require('../../../modules/database/index.tmp.js');
 
 var indexModule = (function($) {
 	// 模块内全局变量
@@ -70,8 +439,7 @@ var indexModule = (function($) {
 		        item.url = getBeibeiListURL(item.event_id, item.iid);
 		        item.price = toIntPrice(item.price);
 		        item.origin_price = toIntPrice(item.origin_price);
-		        item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		        item.img += '!210x210.jpg'; //压缩商品图片
+		        item.webp = item.img; 
 		    }
 		    var tpl = $("#J_selected-tpl").html();
 		    var html = template(tpl, {
@@ -90,8 +458,8 @@ var indexModule = (function($) {
 		        item.url = getBeibeiListURL(item.event_id, item.iid);
 		        item.price = toIntPrice(item.price);
 		        item.origin_price = toIntPrice(item.origin_price);
-		        item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		        item.img += '!210x210.jpg'; //压缩商品图片
+		        item.webp = item.img;
+		       
 		    }
 		    var tpl = $("#J_selected-tpl").html();
 		    var html = template(tpl, {
@@ -125,8 +493,7 @@ var indexModule = (function($) {
 		        } else {
 		            item.url = getBeibeiDetailURL(item.iid);
 		            item.price = toIntPrice(item.price);
-		            item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		            item.img += '!210x210.jpg'; //压缩商品图片
+		            item.webp = item.img;
 		        }
 		    }
 		    martshow[i].itemLen = martshowItem.length; //pop删除数组后，重新获取length
@@ -147,95 +514,14 @@ var indexModule = (function($) {
 		}
 	};
 
-	// 渲染martShowBelow 
-	var renderMartshowBelow = function(data) {
-		var martshow = data.martshow_lists;
-		var martshowLen = martshow.length;
-
-		for (var i = 0; i < martshowLen; i++) {
-		    var _martshow = martshow[i];
-		    var martshowItem = _martshow.martshow_items;
-		    martshow[i].itemLen = martshowItem.length;
-		    martshow[i].url = getBeibeiListURL(_martshow.event_id);
-		    for (var j = 0; j < martshow[i].itemLen; j++) {
-		        var item = martshowItem[j];
-		        if (j >= 4) {
-		            martshowItem.pop();
-		        } else {
-		            item.url = getBeibeiDetailURL(item.iid);
-		            item.price = toIntPrice(item.price);
-		            item.price_ori = toIntPrice(item.price_ori);
-		            item.webp = item.img + '!210x210.webp'; //压缩商品图片webp格式
-		            item.img += '!210x210.jpg'; //压缩商品图片
-		        }
-		    }
-		}
-		var tpl = $("#J_productList-tpl").html();
-		var html = template(tpl, {
-		    martshowList2: martshow
-		});
-		$("#J_productList").append(html);
-		lazyload.getLazyImg();
-		loading = false;
-	};
-
 	// 获取广告位数据
 	var getAds = function() {
-		$.ajax({
-		    type: 'GET',
-		    url: 'http://sapi.beibei.com/resource/h5-ads-36_37.html',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'ads',
-		    cache: true,
-		    success: function(resp) {
-		        renderSlider(resp.new_cheap_banners);  
-		        getSelectedList({
-                    num: num,
-                    isInit: 1,
-                    ads: resp.new_cheap_insert_banners
-                });
-                getMartshowList(martshowNum);
-		    },
-		    error: function() {
-		        console.log("getAds error!!!");
-		    }
-		});
-	};
-
-	// 获取精选和专场数据
-	var getSelectedList = function(data) {
-		$.ajax({
-		    url: 'http://sapi.beibei.com/martshow/h5_mart_new_arrival/' + data.num + '-10-1-0.html',
-		    type: 'GET',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'BeibeiH5MartshowNewArrivalGet01',
-		    success: function(resp) {
-		        data.isInit && renderSelectedList(resp); //渲染精选数据
-		        renderMartshow(resp); //渲染专场数据
-		        renderInsertAds(data.ads);
-		        lazyload.getLazyImg();
-		        loading = false;
-		    },
-		    error: function(resp) {
-		        console.log("getSelectedList error!!!");
-		    }
-		})
-	};
-
-	// 获取martShowList的数据 
-	var getMartshowList = function(num) {
-		$.ajax({
-		    url: 'http://sapi.beibei.com/martshow/h5_mart_new_arrival/' + num + '-10-2-0.html',
-		    type: 'GET',
-		    dataType: 'jsonp',
-		    jsonpCallback: 'BeibeiH5MartshowNewArrivalGet02',
-		    success: function(resp) {
-		        renderMartshowBelow(resp);
-		    },
-		    error: function(resp) {
-		        console.log("getMartshowList error!!!");
-		    }
-		});
+        renderSlider(data.new_cheap_banners);  
+        renderSelectedList(data);
+        renderMartshow(data);
+        renderInsertAds(data.new_cheap_insert_banners);
+        lazyload.getLazyImg();
+		loading = false;
 	};
 
 	// 事件监听
@@ -300,7 +586,7 @@ var indexModule = (function($) {
 
 	init();
 })($);
-},{"../util/config":2,"../util/footer":3,"../util/lazyload":4,"../util/slider":5,"../util/template":6}],2:[function(require,module,exports){
+},{"../../../modules/database/index.tmp.js":1,"../util/config":3,"../util/footer":4,"../util/lazyload":5,"../util/slider":6,"../util/template":7}],3:[function(require,module,exports){
 var config = {
 	version: '1.0.0',
 	author: 'Jafeney',
@@ -308,7 +594,7 @@ var config = {
 };
 
 module.exports = config;
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var footer = (function($){
 
 	$('#J_footerBar li').on('tap', function(){
@@ -322,7 +608,7 @@ var footer = (function($){
 })($);
 
 module.exports = footer;
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var defaultConfig = {
 
     threshold : $(window).height() * 2,
@@ -496,7 +782,7 @@ var lazyload = function(config) {
 
 module.exports = lazyload;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var hasTransform = function() { // 判断浏览器是否支持transform（仅webkit）
         var ret = ('WebkitTransform' in document.documentElement.style) ? true : false;
         return ret;
@@ -1001,7 +1287,7 @@ touchSlider.destroy = function() {
 
 module.exports = touchSlider;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function (global){
 // @desc 前段模板引擎 参照 juicer http://juicer.name
 // @author 王玉林 <veryued@gmail.com>
@@ -1477,4 +1763,4 @@ juicer.to_html = function(tpl, data, options) {
 
 module.exports = juicer;
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[1])
+},{}]},{},[2])

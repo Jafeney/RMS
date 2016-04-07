@@ -5,3 +5,77 @@ html,body {
 	background: @g-color-grey9;
 	height: 100%;
 }
+
+.chart-box {
+	padding-top: 450rem/@g-base;
+	background-color: #fff;
+}
+
+.chart {
+	position: fixed;
+	top: 30rem/@g-base;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 450rem/@g-base;
+	background: #fff;
+}
+
+.record-list {
+	border-top: 1px solid @g-color-grey5;
+	.record-item {
+		
+		.fontSize(0);
+		color: @g-color-grey2;
+		
+		border-bottom: 1px solid @g-color-grey5;
+
+		&.header {
+			background: @g-color-grey8;
+			padding: 2rem/@g-base 0;
+
+			p {
+				.fontSize(25);
+			}
+		}
+	}
+
+	.record-item:nth-child(even) {
+		background-color: #fff;
+	}
+
+	span {
+		color: @g-color-grey2;
+	}
+
+	p {
+		.fontSize(24);
+		line-height: 60rem/@g-base;
+		display: inline-block;
+		width: 100rem/@g-base;
+		text-align: center;
+		.text-overflow();
+		text-align: left;
+	}
+
+	p:nth-child(1) {
+		width: 200rem/@g-base;
+		padding-left: 30rem/@g-base;
+		box-sizing: border-box;
+	}
+
+	p:nth-child(2) {
+		width: 110rem/@g-base;
+	}
+	p:nth-child(3) {
+		width: 220rem/@g-base;
+	}
+	p:nth-child(4) {
+		width: 110rem/@g-base;
+	}
+	p:nth-child(5) {
+		width: 110rem/@g-base;
+	}
+
+	
+}

@@ -10,11 +10,14 @@ var accountModule = (function($) {
 	};
 
 	var eventBind = function() {
-
+		/*头像选择*/
+		$('#user-head').on('tap', function() {
+			$('#upload-img').trigger('click');
+		});
 	};
 
 	init();
-})();
+})($);
 },{"../util/config":2,"../util/cookie":3,"../util/footer":4}],2:[function(require,module,exports){
 var config = {
 	version: '1.0.0',

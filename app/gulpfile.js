@@ -62,7 +62,7 @@ gulp.task('images', function() {
 
 // 处理html
 gulp.task('htmls', function() {
-	return gulp.src('views/**/*.ejs')
+	return gulp.src(['views/**/*.ejs','!views/404/*.ejs'])
 		.pipe($.ejs())
 		.pipe($.rename({
 			suffix: '.min',

@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8"/>
-	<title>Document</title>
-</head>
-<body>
-	哈哈哈哈哈
-</body>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{}) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			系统主页
+            			<small>System Home Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+            			<li class="active"><a href="#"><i class="fa fa-home"></i> 主页</a></li>
+          			</ol>
+        		</section>
+
+        		<!-- Main content -->
+        		<section class="content">
+          			<!-- Your Page Content Here -->
+        		</section><!-- /.content -->
+      		</div><!-- /.content-wrapper -->
+
+			<%- include('common/footer.ejs',{}) %>
+		</div><!-- ./wrapper -->
+  	</body>
 </html>

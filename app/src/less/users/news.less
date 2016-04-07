@@ -7,6 +7,7 @@ body {
 .news-list {
 	background-color: #fff;
 	.item {
+		position: relative;
 		.fontSize(0);
 		padding: 20rem/@g-base 25rem/@g-base;
 		border-bottom: 1px solid @g-color-grey7;
@@ -59,6 +60,20 @@ body {
 					margin-right: 10rem/@g-base;
 				}
 			}
+		}
+
+		.tag-new {
+			position: absolute;
+			right: 20rem/@g-base;
+			top: 20rem/@g-base;
+			width: 30rem/@g-base;
+			height: 30rem/@g-base;
+			border-radius: 15rem/@g-base;
+			background-color: @g-color-red;
+			color: #fff;
+			.fontSize(18);
+			line-height: 30rem/@g-base;
+			text-align: center;
 		}
 	}
 } 

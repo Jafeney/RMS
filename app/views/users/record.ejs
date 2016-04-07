@@ -3,14 +3,35 @@
 	<%- include('./common/head.ejs', { module: "record" }) %>
 <body>
 	
-	<section class="pt-page-scaleUpCenter" id="J_container">
-		<ul class="login-input">
-			<li><i class="icon-user"></i> <input type="text" id="J_username" placeholder="手机号" /> </li>
-			<li><i class="icon-lock"></i> <input type="number" id="J_code" placeholder="验证码" /> <span id="J_getCode">获取验证码</span></li>
-		</ul>
-
-		<div class="login" id="J_login">保存</div>
+	<section class="pt-page-scaleUpCenter chart-box" id="J_container">
+		<canvas class="chart" id="J-chart"></canvas>
+		<div class="record-list" id="J_recordList"></div>
 	</section>
+
+	<script type="text/template" id="recordList-tpl">
+		<ul>
+		<li class="record-item header">
+			<p class="long">消费时间</p>
+			<p>金额</p>
+			<p class="long">使用优惠券</p>
+			<p>支付</p>
+			<p>餐位</p>
+		</li>
+		{@each lists as item}
+			<li class="record-item">
+				<p class="long"><span>${item.time}</span></p>
+				<p><span>¥${item.money}</span></p>
+				<p class="long"><span>${item.coupon}</span></p>
+				<p><span>¥${item.payMoney}</span></p>
+				<p><span>${item.seat}</span></p>
+			</li>
+		{@/each}
+		</ul>
+	</script>
+
+	<!-- chart库 -->
+	<script type="text/javascript" src="../../js/lib/chart.min.js"></script>
+	<!-- /chart库 -->
 	
 	<!-- footer -->
 	<%- include('./common/footer-sub.ejs', { module: "record" }) %>	

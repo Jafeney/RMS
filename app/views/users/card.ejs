@@ -12,10 +12,14 @@
 		{@each lists as item}
 			<li class="card-item">
 				<h2>${item.name}</h2>
-				<p>${item.person}</p>
-				<p>${item.money}</p>
-				<p>${item.time}</p>
-				<p>${item.state}</p>
+				<p><span class="tag">${item.person}</span ><span class="price">${item.money} </span>优惠</p>
+				<p class="time">优惠码<span class="price">${item.code}</span></p>
+				<p class="time">${item.time} 到期</p>
+				{@if item.use}
+				<p class="btn">${item.state}</p>
+				{@else}
+				<p class="btn disabled">${item.state}</p>
+				{@/if}
 			</li>
 		{@/each}
 		</ul>
