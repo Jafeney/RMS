@@ -41,21 +41,36 @@
 6) 商品管理, 对菜品,酒水的增删改。 <br/>
 7) 报表查询, 查询餐饮企业在某个时间段内的营业额,销售情况等,并打印报表。<br/>
 
+而系统一般分为 6 个子系统管理模块 ——顾客开单、快餐外卖、商品管理、财务管理、会员管理、系统设置。 <br/>
+顾客开单模块:该模块主要是对顾客所点的菜单进行输入,以及用完餐后的买单付款。 主要功能包括: <br/>
+1) 选择顾客用餐时所在的餐台 <br/>
+2) 输入顾客点单时所选择的菜品 <br/>
+3) 对顾客所在的餐台的消费情况进行买单 <br/>
+4) 查询该餐台的使用记录以及一些消费信息 <br/>
+5) 打印消费账单  <br/>
+快餐外卖模块: 该模块主要是输入外卖需送达的地址,送餐时间,顾客联系电话,相关备注,以及所需要的菜品。  <br/>
+商品管理模块: 该模块主要是对餐饮系统中的菜品以及菜品的价格进行增删改。  <br/>
+财务管理模块: 该模块的主要功能是对餐厅的一些消费情况进行查询,其中包括消费记录的查询,销售额统计报表,冷菜销售额统计,热菜销售额统计,热门菜肴统计等。 <br/>
+会员管理模块: 该模块的主要功能是对餐厅会员进行管理,其中包括对餐厅会员的增删改,对会员信息进行修改。 <br/>
+系统设置模块:本系统是使用于小型餐饮企业的餐饮管理系统,所以系统设置这一项是非常精简的,目前系统设置的功能只有对系统操作人员的增加,删除,权限的更改。
+
 ### 发展趋势
-随着智能移动设备的普及,移动互联网在生活中的重要性越来越明显,为了适应快速发展的Web技术以及不断提出的移动Web应用需求,HTML5应运而生。于此同时，传统餐饮管理系统受到硬件和软件的诸多限制，无法满足人们日新月异的移动消费需求。因此餐饮管理系统未来的发展应该一方面围绕为客户提供便捷、智能的消费方式，一方面利于商家对客户消费信息的进行合理数据分析从而做出价格和经营方式的调整。所以必然会诞生两个版本 —— 客户版和商家版。客户版围绕客户，内容要精简实用、操作要智能简单，从而受众面可以是任何会使用智能手机的用户。 商家版要围绕管理者，引导餐厅管理者高效便捷地进行管理，核心包括运营客户版的内容，提供更多优质的服务和实惠，从而吸引更多的客户；管理餐厅的大小事务，小到库存管理，大到财务统计和数据分析，餐厅运行的每一环都要透明地捏在管理者的手中，既要保证系统的安全性和稳定性，又要保证低门槛的操作性和对未知方向的可拓展性。当然基于目前的移动web趋势，客户版和商家版还应该遵循移动优先的原则，同时要具杯跨平台和跨设备访问的能力。
+随着智能移动设备的普及,移动互联网在生活中的重要性越来越明显,为了适应快速发展的Web技术以及不断提出的移动Web应用需求,HTML5应运而生。基于HTML5开发应用可以做到“一次开发, 多平台使用”,开发者无需把时间浪费在修改移植上。 HTML5在应用维护的方面的优势更是明显,开发者只 需维护一个版本。同时,用户端的更新也可以更加方 便快捷。因此HTML5极具成本效益,能够降低人力投入。而且HTML5可以无缝地连接PC端和移动端。在使用Web App的时候,桌面端和移动端不再是独立的 两个点,它们将可以更好地共享资源和数据。
+
+于此同时，传统餐饮管理系统受到硬件和软件的诸多限制，无法满足人们日新月异的移动消费需求。因此餐饮管理系统未来的发展应该一方面围绕为客户提供便捷、智能的消费方式，一方面利于商家对客户消费信息的进行合理数据分析从而做出价格和经营方式的调整。所以必然会诞生两个版本 —— 客户版和商家版。客户版围绕客户，内容要精简实用、操作要智能简单，从而受众面可以是任何会使用智能手机的用户。 商家版要围绕管理者，引导餐厅管理者高效便捷地进行管理，核心包括运营客户版的内容，提供更多优质的服务和实惠，从而吸引更多的客户；管理餐厅的大小事务，小到库存管理，大到财务统计和数据分析，餐厅运行的每一环都要透明地捏在管理者的手中，既要保证系统的安全性和稳定性，又要保证低门槛的操作性和对未知方向的可拓展性。当然基于目前的移动web趋势，客户版和商家版还应该遵循移动优先的原则，同时要具杯跨平台和跨设备访问的能力。
 
 ### 参考文献
 > [1] Xiaolin Yi，《The Development of a Mobile Terminal Middleware Platform Based on HTML5》，JOURNAL OF SOFTWARE, VOL. 8, NO. 5, MAY 2013 <br/>
   [2] Ogunlolu O. Isaac，《HTML5, the future of mobile applications:A comparison between HTML5 application development platforms and native platforms》，The Bachelor’s Thesis of degree programme in Information Technology Kemi 2012 <br/>
   [3]《Mobile App versus Web App: a Comparison Using 2008-2012 "PubMed for Handhelds" Server Data》， Paul Fontelo, MD, MPH and Fang Liu, MS National Library of Medicine, Bethesda, MD 20894 <br/>
-  [4] Pew Internet Mobile Health 2012. Nov 8, 2012. http://www.pewinternet.org/Reports/2012/Mobile-Health.aspx <br/>
-  [5] Among U.S. Social Network Users, Smartphone Apps Trump the Mobile Web, Dec 2, 2012. http://allthingsd.com/20121202/among-u-s-social-networks-smartphone-apps-trump-the-mobile-web/ <br/>
-  [6] Mobile Usage in the Medical Space Report & Infographic. AmericanEHR blog. March 6, 2013. http://www.americanehr.com/blog/2013/03/mobile-usage-in-the-medical-space-infographic/ <br/>
+  [4] 《Pew Internet Mobile Health》 2012. Nov 8, 2012. http://www.pewinternet.org/Reports/2012/Mobile-Health.aspx <br/>
+  [5] 《Among U.S. Social Network Users, Smartphone Apps Trump the Mobile Web》, Dec 2, 2012. http://allthingsd.com/20121202/among-u-s-social-networks-smartphone-apps-trump-the-mobile-web/ <br/>
+  [6] 《Mobile Usage in the Medical Space Report & Infographic》. AmericanEHR blog，March 6, 2013. http://www.americanehr.com/blog/2013/03/mobile-usage-in-the-medical-space-infographic/ <br/>
   [7] 蔡恒强，《MVC模式下餐饮管理系统设计与实现》， Com puterKnowledge and Technology，第 9 卷第 06 期，Vol.9, No.6, February 2013. <br/>
   [8] 黄永慧,陈程凯，《HTML5在移动应用开发上的应用前景》，计算机技术与发展。第23卷，第7期，2013年7月，01.23 No.7 July 2013 <br/>
-  [9] 邢晓鹏，HTML5核心技术的研究与价值分析[期刊论文]-价值工程 2011(22) <br/>
-  [10] 刘斌，HTML5-未来网络应用的核心技术研究[期刊论文]-自动化与仪器仪表 2010(04) <br/>
-  [11] 刘铁锋，WebApp框架发展趋势及现状分析， Mobile移动，2011 <br/>
+  [9] 邢晓鹏，《HTML5核心技术的研究与价值分析》，价值工程，2011(22) <br/>
+  [10] 刘斌，《HTML5-未来网络应用的核心技术研究》自动化与仪器仪表，2010(04) <br/>
+  [11] 刘铁锋，《WebApp框架发展趋势及现状分析》， Mobile移动，2011 <br/>
   [12] 孙宇，《餐厅自助点餐管理系统》，吉林大学硕士学位论文，2008(10) <br/>
   [13] 杨成栋，《联合式餐厅管理系统的开发与实现》，现代经济信息，1001-828X(2013)03-0168-01 <br/>
   [14] 万明,王闯，《基于无线终端的餐饮管理系统设计与实现》，软件导刊，13卷，第6期，2014年6月，Vol.13, No.6, June.2014. <br/>
