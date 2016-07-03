@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <%- include('common/header.ejs',{}) %>
+  <link rel="stylesheet" href="/js/lib/plugins/iCheck/square/blue.css" />
+  <body class="hold-transition login-page" style="margin-top:15%;background-color:rgb(60,141,188)">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="../../index2.html" style="color:#fff"><b>餐厅</b>管理系统</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">您好，请先登录！</p>
+        <div class="login-form">
+          <div class="form-group has-feedback">
+            <input id="J_login-tel" type="tel" class="form-control" placeholder="手机号码">
+            <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input id="J_login-pwd" type="password" class="form-control" placeholder="登录密码">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                  <input id="J_login-flag" type="checkbox"> 下次自动登录
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="button" id="J_login-submit" class="btn btn-primary btn-block btn-flat">登录账号</button>
+            </div><!-- /.col -->
+          </div>
+      </div>
+
+        <a href="#">忘记密码请联系客服</a><br>
+
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="/js/lib/jQuery.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="/js/lib/plugins/iCheck/icheck.min.js"></script>
+    <script src="/js/admin/login.min.js" ></script>
+  </body>
+</html>

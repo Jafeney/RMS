@@ -1,0 +1,57 @@
+// modal
+
+.mask {
+    position: fixed;
+	z-index: 99999;
+	background-color: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.modal-box {
+    width: 500rem/@g-base;
+    max-height: 300rem/@g-base;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    border-radius: 12rem/@g-base;
+    text-align: center;
+
+    h2 {
+        .fontSize(32);
+        padding: 15rem/@g-base;
+        color: @g-color-grey1;
+    }
+    p{
+        .fontSize(28);
+        padding: 20rem/@g-base 12rem/@g-base;
+        color: @g-color-grey2;
+    }
+    .mask-btns {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+        height: 80rem/@g-base;
+        line-height: 80rem/@g-base;
+        border-top: 1px solid @g-color-grey5;
+        color: @g-color-grey2;
+        display: flex;
+        flex-direction: row;
+
+        span {
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        span:first-child{
+            border-right: 1px solid @g-color-grey5;
+        }
+    }
+}

@@ -3,15 +3,16 @@ var footer = require('../util/footer');
 var isLogin = require('../util/isLogin');
 var cookie = require('../util/cookie');
 var config = require('../util/config');
+var $ = window.$;
 
-var meModule = (function($) {
+var meModule = (function() {
 
 	var init = function() {
 		eventBind();
 	};
 
 	var eventBind = function() {
-		// 退出登录 
+		// 退出登录
 		$('#J_login-out').on('tap', function() {
 			cookie.deleteCookie({
 				name: 'token'
@@ -20,7 +21,7 @@ var meModule = (function($) {
 			location.href = "login.min.html?returnURL=me.min.html";
 		});
 
-		// 进入子页 
+		// 进入子页
 		$('.J_sub-link').on('tap', function() {
 			var _link = $(this).data('link');
 			location.href = _link + ".min.html";
@@ -28,7 +29,8 @@ var meModule = (function($) {
 	};
 
 	init();
-})($);
+})();
+
 },{"../util/config":2,"../util/cookie":3,"../util/footer":4,"../util/isLogin":5}],2:[function(require,module,exports){
 var config = {
 	version: '1.0.0',
@@ -100,7 +102,9 @@ var cookie = (function() {
 
 module.exports = cookie;
 },{}],4:[function(require,module,exports){
-var footer = (function($){
+var $ = window.$;
+
+var footer = (function(){
 
 	$('#J_footerBar li').on('tap', function(){
 		if($(this).hasClass('active')){
@@ -110,21 +114,28 @@ var footer = (function($){
 		location.href = link;
 	});
 
-})($);
+})();
 
 module.exports = footer;
+
 },{}],5:[function(require,module,exports){
-var cookie = require('./cookie');
+var cookie = require('./cookie');   // 引入cookie模块
 
+/*
+ * 检查用户是否登录
+*/
 var isLogin = (function(){
-	var token = cookie.getCookie({name: 'token'});
 
+	var token = cookie.getCookie({name: 'token'});  // 从cookie里读取token
+
+	// 如果不存在跳转到登录页面
 	if (!token) {
-		var returnURL = location.href.split('/');
+		var returnURL = location.href.split('/');   // 当前页面做为登录完成后的调整页面
 		location.href = 'login.min.html'+'?returnURL='+returnURL[returnURL.length-1];
 	}
 
 })();
 
 module.exports = isLogin;
+
 },{"./cookie":3}]},{},[1])

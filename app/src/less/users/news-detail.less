@@ -30,10 +30,50 @@ html,body {
 		height: auto;
 	}
 
-	p {
+	div {
 		.fontSize(24);
 		padding: 10rem/@g-base 24rem/@g-base;
 	}
+}
+
+.coupon-receive {
+	margin-top: 30rem/@g-base;
+	padding: 0 24rem/@g-base;
+	h2 {
+		.fontSize(30);
+		color: @g-color-grey1;
+	}
+	h3 {
+		.fontSize(24);
+		color: @g-color-grey3;
+		margin: 10rem/@g-base 0;
+
+		label {
+			color: @g-color-grey2;
+			display: inline-block;
+			width: 30rem/@g-base;
+			.fontSize(24);
+		}
+
+		strong {
+			color: @g-color-red;
+			margin: 0 5rem/@g-base;
+			.fontSize(25);
+		}
+
+		span {
+			.fontSize(20);
+			background: @g-color-red;
+			text-align: center;
+			float: right;
+			padding: 10rem/@g-base 20rem/@g-base;
+			color: #fff;
+			border-radius: 5px;
+			position: relative;
+			top: -8rem/@g-base;
+		}
+	}
+
 }
 
 .review-list {
@@ -84,7 +124,7 @@ html,body {
 			}
 		}
 
-		p {
+		div {
 			.fontSize(22);
 			color: @g-color-grey1;
 			.text-overflow();
@@ -101,7 +141,7 @@ html,body {
 		width: 530rem/@g-base;
 		padding: 18rem/@g-base 20rem/@g-base;
 		.fontSize(22);
-		color: @g-color-grey2; 
+		color: @g-color-grey2;
 		margin-left: 10rem/@g-base;
 		border-radius: 5px;
 		border: 1px solid @g-color-grey5;

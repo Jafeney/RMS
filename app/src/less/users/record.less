@@ -7,27 +7,24 @@ html,body {
 }
 
 .chart-box {
-	padding-top: 450rem/@g-base;
+	padding-top: 50rem/@g-base;
 	background-color: #fff;
 }
 
 .chart {
-	position: fixed;
-	top: 30rem/@g-base;
-	left: 0;
-	z-index: 99;
 	width: 100%;
 	height: 450rem/@g-base;
 	background: #fff;
+	padding-bottom: 20rem/@g-base;
 }
 
 .record-list {
 	border-top: 1px solid @g-color-grey5;
 	.record-item {
-		
+
 		.fontSize(0);
 		color: @g-color-grey2;
-		
+
 		border-bottom: 1px solid @g-color-grey5;
 
 		&.header {
@@ -77,5 +74,115 @@ html,body {
 		width: 110rem/@g-base;
 	}
 
-	
+	a {
+		color: @g-color-red;
+	}
+}
+
+.mask {
+	position: fixed;
+	z-index: 9999;
+	background-color: rgba(0,0,0,.8);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	.main {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 50%;
+		background-color: #fff;
+
+		h3 {
+			.fontSize(28);
+			color: @g-color-grey2;
+			height: 80rem/@g-base;
+			line-height: 80rem/@g-base;
+			padding-left: 24rem/@g-base;
+			border-bottom: 1px solid @g-color-grey6;
+			background-color: @g-color-grey9;
+		}
+
+		.remove {
+			position: absolute;
+			right: 20rem/@g-base;
+			top: 22rem/@g-base;
+			width: 35rem/@g-base;
+			height: 35rem/@g-base;
+			background: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wgARCAAoACgDAREAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAACAUJBP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAANYBFlAnh4ESAEd4Ex8lAgmHxuEXSeAcdQEB+h0EWUDhDmf/xAAxEAABBAECBAQEBgMBAAAAAAABAgQFBgMHEgAIERMUFSEiCTRicRYxQVFS8DNjgZL/2gAIAQEAAT8A51Od3VHkk1Tql9v2lbeR0Dk2wYXG6RXdyydVlF5iMLlxhBKVMFIKElSUlQVu9euxGWs2WEuEGztVVmW0lFyTZDmPkGWdOXC5wrTuRkQtPoUkdCCOoII4V6JPFjstfplffW23TjWMi4xqtzISL9ynFgbYUAqXkWtRASlKQSVE8ck/Orqnzvao2m/0HS5tG6CRrcsKbcZVGbFJ2qSRmAyu2+IkJSwCQtIKk7lK2kK/yIRZqxXrlXX9StkE0k4uUaZGsjHP26cuB1hWkpXjyIUClaVAkEEEEHhC778EK/BC1ytk5SrLKexY7rt7pY8zZPuV5ozIsn8gSgq/n80NRqIKCrVg3eKNXTE+Z/iESGMsvBdvuFz3gdna2e/f127fXr04Av8A8bm/7z5rWeUysy/1tXuqj3Bk/wDWKLQsfdZ+v5etV2Ap0AxqdUhWsZFxrXG1jo5k3TiwtsKAEoxoQkdEJSkABI/ThXog/bjUlFAOns6NVkxX4ZMVmFg897fgiz2K7vf7ns7ezdu3enThHsA7w1VPw4TqqSP7855D43+hz+enBoKaJCjSlESKwYtua95D2/BeCKAcPYGP2drZ027fbt6dPTjoP24sllr9Mrz+3W6caxkXGNFuZCQfuU4sDbCgFS8i1qPRKUpBJUT042X/AON1f95EpWuUutS31tXuqj3Bk/4rFFoWPus/X8udNtPl0A6ULo8SayYryw19TDH4Is9nb8OcO3Z29h27OnTpxiN/+CBfuxmMpZeUuyyv+x080se58v3K80bkyEn9Sgn+fzVZssJcINnaqrMtpKLkmyHMfIMs6cuFzhWncjIhafQpI6EEdQQRxzpclWqnO3qrVaHf9U28boJGNkv7fT4leXHJ2mURmUcTVxlACEMEoCFEJVvUvd6ddi0VmuV6mwDGp1OEaRkXGtMbWOj2LdOLC2wIASjGhCR0QlI6AJHToOOg/bizVmu3Kuv6lbYFnJxUmzyNZGOft05cDrAtJSvHkQoEKSoEggggg8ckXJRqlyQ6n2qgUTVnBKaCyTfx9Lp8uc2WTqskvKFZmmDKeqFsSkrWATuCyPT0WvJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAQP/aAAgBAgEBPwBP/8QAFBEBAAAAAAAAAAAAAAAAAAAAQP/aAAgBAwEBPwBP/9k=") no-repeat center center;
+			background-size: 35rem/@g-base;
+		}
+
+		p {
+			padding-left: 24rem/@g-base;
+			color: @g-color-grey2;
+			.fontSize(26);
+			margin-top: 30rem/@g-base;
+		}
+
+		ul {
+			background-color: #fff;
+			padding: 24rem/@g-base 0;
+			padding-left: 24rem/@g-base;
+			.fontSize(0);
+		}
+
+		textarea {
+			margin-top: 20px;
+			width: 670rem/@g-base;
+			display: block;
+			margin-left: 24rem/@g-base;
+			border: 0;
+			color: @g-color-grey4;
+			padding: 15rem/@g-base;
+			outline: 0;
+			.fontSize(24);
+			border: 1px solid @g-color-grey7;
+			border-radius: 5px;
+		}
+
+		.score-item {
+			display: inline-block;
+			vertical-align: top;
+			.fontSize(22);
+			width: 120rem/@g-base;
+			margin-right: 20rem/@g-base;
+			height: 60rem/@g-base;
+			line-height: 60rem/@g-base;
+			color: @g-color-grey3;
+			text-align: center;
+			box-sizing: border-box;
+			border: 1px solid @g-color-grey6;
+			border-radius: 6px;
+
+			&.active {
+				border: 1px solid @g-color-red;
+				border-radius: 6px;
+				background-color: @g-color-red;
+				color: #fff;
+			}
+		}
+
+		.submit {
+			display: block;;
+			width: 700rem/@g-base;
+			margin: 20px auto;
+			border: 1px solid @g-color-grey6;
+			color: #fff;
+			text-align: center;
+			.fontSize(25);
+			padding: 18rem/@g-base 0;
+			margin-top: 60rem/@g-base;
+			background: @g-color-red;
+			border-radius: 6px;
+		}
+
+	}
+}
+
+.input-box {
+
 }

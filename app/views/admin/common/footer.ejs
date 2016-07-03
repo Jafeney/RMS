@@ -1,11 +1,48 @@
-Main Footer -->
+<%
+    var _module = 'index';
+    try{
+        _module = module;
+    }catch(e){
+        _module = 'index';
+    }
+%>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">×
+            </button>
+            <h4 class="modal-title" id="J_modal-title">
+               模态框（Modal）标题
+            </h4>
+         </div>
+         <div class="modal-body" id="J_modal-content">
+            按下 ESC 按钮退出。
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">关闭
+            </button>
+            <button type="button" id="J_confirm-sure" class="btn btn-primary">
+               提交更改
+            </button>
+         </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Main Footer -->
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        餐饮管理系统 <small>v.1.0.0</small> 
+        餐饮管理系统 <small>v.1.0.0</small>
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="#">Jafeney</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="#">Jafeney</a>.</strong> All rights reserved.
 </footer>
 
 <!-- Control Sidebar -->
@@ -134,6 +171,9 @@ Main Footer -->
 <!-- jvectormap -->
 <script src="/js/lib/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="/js/lib/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- DataTables -->
+<script src="/js/lib/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="/js/lib/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="/js/lib/plugins/knob/jquery.knob.js"></script>
 <!-- daterangepicker -->
@@ -147,11 +187,12 @@ Main Footer -->
 <script src="/js/lib/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/js/lib/plugins/fastclick/fastclick.min.js"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="/js/lib/plugins/chartjs/Chart.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="/js/lib/origin.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/js/lib/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="/js/lib/demo.js"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.Both of these plugins are recommended to enhance the user experience. Slimscroll is required when using the fixed layout.
+<script src="/js/lib/setting.min.js"></script>
+<!-- current page's script -->
+<script src="/js/admin/<%= _module + '.min' %>.js"></script>

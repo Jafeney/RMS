@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{module:'system'}) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			系统管理
+            			<small>System Manage Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+                        <li class="active"><a href="#"><i class="fa fa-cogs"></i> 系统管理</a></li>
+            			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> 基本配置</a></li>
+          			</ol>
+        		</section>
+
+                <!-- Main content -->
+        		<section class="content">
+                </section>
+            </div>
+
+            <%- include('common/footer.ejs',{module:'system-basic'}) %>
+        </div>
+    </body>
+</html>

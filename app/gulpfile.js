@@ -1,7 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),                         // gulp核心模块
-	DEST = 'public',                                // 编译目录 
+	DEST = 'public',                                // 编译目录
 	CSS_DEST = 'public/css',                        // css编译目录
 	JS_DEST = 'public/js',                          // js编译目录
 	IMG_DEST = 'public/img',                        // img编译目录
@@ -20,13 +20,13 @@ gulp.task('styles', function() {
 		}))
 		.pipe($.minifyCss())
 		.pipe(gulp.dest(CSS_DEST))
-		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Styles task complete'
-		}));
+		//.pipe($.livereload())
+		// .pipe($.notify({
+		// 	message: 'Styles task complete'
+		// }));
 });
 
-// 处理javascript 
+// 处理javascript
 gulp.task('scripts', function() {
 	// 注意：用于require的模块不需要编译，browserify会自动处理require的请求
 	return gulp.src(['src/js/**/*.js','!src/js/util/**/*.js'])
@@ -39,10 +39,10 @@ gulp.task('scripts', function() {
 		}))
 		.pipe($.uglify())
 		.pipe(gulp.dest(JS_DEST))
-		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Scripts task complete'
-		}));
+		//.pipe($.livereload())
+		// .pipe($.notify({
+		// 	message: 'Scripts task complete'
+		// }));
 });
 
 // 处理图片
@@ -54,10 +54,10 @@ gulp.task('images', function() {
 			interlaced: true
 		})))
 		.pipe(gulp.dest(IMG_DEST))
-		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Images task complete'
-		}))
+		//.pipe($.livereload())
+		// .pipe($.notify({
+		// 	message: 'Images task complete'
+		// }))
 });
 
 // 处理html
@@ -70,10 +70,10 @@ gulp.task('htmls', function() {
 		}))
 		.pipe($.minifyHtml())
 		.pipe(gulp.dest(HTML_DEST))
-		.pipe($.livereload())
-		.pipe($.notify({
-			message: 'Htmls task complete'
-		}))
+		//.pipe($.livereload())
+		// .pipe($.notify({
+		// 	message: 'Htmls task complete'
+		// }))
 });
 
 // 清理build目录
@@ -92,7 +92,7 @@ gulp.task('http', function() {
     $.connect.server({
         root: DEST,
         port: WEB_PORT,
-        livereload: true
+        //livereload: true
     });
 });
 
@@ -100,7 +100,7 @@ gulp.task('http', function() {
 gulp.task('watch', function() {
 
 	// 监听livereload
-	$.livereload.listen();
+	//$.livereload.listen();
 
 	// 监听html
 	gulp.watch('views/**/*.ejs', ['htmls']);
@@ -131,14 +131,4 @@ gulp.task('main', function(cb){
 
 // 默认任务
 gulp.task('default',['main']);
-
-
-
-
-
-
-
-
-
-
 

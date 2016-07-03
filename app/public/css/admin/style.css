@@ -1,0 +1,13 @@
+.category-select {
+  float: right;
+  font-size: 12px;
+  padding: 3px;
+}
+.category-select label {
+  margin-right: 10px;
+}
+.form-control.input-sm {
+  height: 24px;
+  margin: 0px 4px;
+  font-size: 12px;
+}

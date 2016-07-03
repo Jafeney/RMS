@@ -12,7 +12,7 @@
 		<section class="form">
 			<div class="input-number">
 				<span>选择人数</span>
-				<select>
+				<select id="J_number">
 					<option>1人</option>
 					<option>2人</option>
 					<option>4人</option>
@@ -21,15 +21,16 @@
 				</select>
 			</div>
 			<div class="input-name">
-				<input type="text" placeholder="姓名" />
+				<input type="text" placeholder="姓名" id="J_name" />
 				<div class="sex" id="J_sex">
-					<span class="active"><i class="icon-ok-sign"></i>先生</span>
-					<span><i class="icon-ok-sign"></i>女士</span>
+					<span data-sex="男" class="active"><i class="icon-ok-sign"></i>先生</span>
+					<span data-sex="女"><i class="icon-ok-sign"></i>女士</span>
 				</div>
 			</div>
 			<div class="input-phone">
-				<input type="tel" placeholder="联系方式" />
+				<input type="tel" id="J_phone" placeholder="联系方式" />
 			</div>
+			<div class="input-seat" id="J_seat">选择餐位</div>
 		</section>
 		<!-- /form -->
 
@@ -39,9 +40,9 @@
 	</section>
 
 	<!-- mask -->
-	<div class="mask hidden" id="J_mask">
+	<div class="mask hidden" id="J_mask-time">
 		<div class="main slideInUp animated-zing">
-			<i class="icon-remove" id="J_mask-close"></i>
+			<i class="icon-remove J_mask-close"></i>
 			<h3>晚餐</h3>
 			<ul>
 				<li class="active time-item">16:00</li>
@@ -58,11 +59,51 @@
 			</ul>
 		</div>
 	</div>
+	<div class="mask hidden" id="J_mask-seat">
+		<div class="main slideInUp animated-zing">
+			<i class="icon-remove J_mask-close"></i>
+			<h3>餐位</h3>
+			<ul>
+				<li class="seat-item disabled" data-id="">A1</li>
+				<li class="seat-item disabled" data-id="">A2</li>
+				<li class="seat-item disabled" data-id="">A3</li>
+				<li class="seat-item disabled" data-id="">A4</li>
+				<li class="seat-item active" data-id="">A5</li>
+				<li class="seat-item" data-id="">A6</li>
+				<li class="seat-item" data-id="">A7</li>
+				<li class="seat-item" data-id="">A8</li>
+				<li class="seat-item" data-id="">A9</li>
+				<li class="seat-item" data-id="">A10</li>
+				<li class="seat-item disabled" data-id="">B1</li>
+				<li class="seat-item disabled" data-id="">B2</li>
+				<li class="seat-item disabled" data-id="">B3</li>
+				<li class="seat-item disabled" data-id="">B4</li>
+				<li class="seat-item disabled" data-id="">B5</li>
+				<li class="seat-item disabled" data-id="">B6</li>
+				<li class="seat-item disabled" data-id="">B7</li>
+				<li class="seat-item disabled" data-id="">B8</li>
+				<li class="seat-item" data-id="">B9</li>
+				<li class="seat-item" data-id="">B10</li>
+				<li class="seat-item disabled" data-id="">C1</li>
+				<li class="seat-item disabled" data-id="">C2</li>
+				<li class="seat-item disabled" data-id="">C3</li>
+				<li class="seat-item" data-id="">C4</li>
+				<li class="seat-item" data-id="">C5</li>
+				<li class="seat-item" data-id="">C6</li>
+				<li class="seat-item" data-id="">C7</li>
+				<li class="seat-item" data-id="">C8</li>
+				<li class="seat-item" data-id="">C9</li>
+				<li class="seat-item" data-id="">C10</li>
+			</ul>
+		</div>
+	</div>
 	<!-- /mask -->
-	
+
 	<!-- datepicker template -->
 	<script type="text/template" id="datepicker-tpl">
-		<h2 class="title">时间</h2>
+		<h2 class="title">
+			时间
+		</h2>
 		<div class="controller">
 			<table class="dateList">
 				<thead>
@@ -78,22 +119,22 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><span class="date active">29</span></td>
-						<td><span class="date">28</span></td>
-						<td><span class="date">29</span></td>
-						<td><span class="date">30</span></td>
-						<td><span class="date">31</span></td>
-						<td><span class="date">1</span></td>
-						<td><span class="date">2</span></td>
+						<td><span class="date" data-date="2016-05-03">15</span></td>
+						<td><span class="date" data-date="2016-05-03">16</span></td>
+						<td><span class="date" data-date="2016-05-03">17</span></td>
+						<td><span class="date" data-date="2016-05-03">18</span></td>
+						<td><span class="date" data-date="2016-05-03">19</span></td>
+						<td><span class="date" data-date="2016-05-03">20</span></td>
+						<td><span class="date active" data-date="2016-05-03">21</span></td>
 					</tr>
 					<tr>
-						<td><span class="date">3</span></td>
-						<td><span class="date">4</span></td>
-						<td><span class="date">5</span></td>
-						<td><span class="date">6</span></td>
-						<td><span class="date">7</span></td>
-						<td><span class="date">8</span></td>
-						<td><span class="date">9</span></td>
+						<td><span class="date" data-date="2016-05-03">22</span></td>
+						<td><span class="date" data-date="2016-05-03">23</span></td>
+						<td><span class="date" data-date="2016-05-03">24</span></td>
+						<td><span class="date" data-date="2016-05-03">25</span></td>
+						<td><span class="date" data-date="2016-05-03">26</span></td>
+						<td><span class="date" data-date="2016-05-03">27</span></td>
+						<td><span class="date" data-date="2016-05-03">28</span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -104,11 +145,10 @@
 		</div>
 	</script>
 	<!-- /datepicker template -->
-	
+
 	<!-- footer -->
-	<%- include('./common/footer.ejs', { module: "order" }) %>	
+	<%- include('./common/footer.ejs', { module: "order" }) %>
 	<!-- /footer -->
 
 </body>
 </html>
-

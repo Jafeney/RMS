@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+    <style>
+        .dataTables_length {
+            margin-bottom: 20px;
+        }
+        .dataTables_filter {
+            text-align: right;
+        }
+        .input-sm {
+            height: auto !important;
+        }
+        .dataTables_paginate {
+            text-align: right;
+            font-size: 12px !important;
+        }
+    </style>
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{ module: "food" }) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			菜式管理
+            			<small>Food Manage Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+                        <li class="active"><a href="#"><i class="fa fa-book"></i> 菜式管理</a></li>
+            			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> 分类清单</a></li>
+          			</ol>
+        		</section>
+
+                <!-- Main content -->
+        		<section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">
+                                        菜式列表
+                                    </h3>
+                                    <div class="category-select">
+                                        <label style="margin-bottom:0;margin-top:4px;">筛选分类</label>
+                                        <select class="category-select">
+                                            <option>显示全部</option>
+                                            <option>甜点</option>
+                                            <option>水果</option>
+                                            <option>肉类</option>
+                                            <option>熟食</option>
+                                            <option>饮料</option>
+                                        </select>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <table id="J_food-list" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>菜名</th>
+                                                <th>类别名称</th>
+                                                <th>图片</th>
+                                                <th>上架时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="J_food-items">
+                                        </tbody>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </section>
+            </div>
+
+            <!-- food items template -->
+            <script type="text/template" id="J_tpl-food-items" >
+                {@each items as item}
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.category}</td>
+                    <td><img src="${item.img}" style="width:50px;" /></td>
+                    <td>${item.uptime}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-default"><i class="fa fa-edit"></i> 编辑</button>
+                            <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-close"></i> 删除</button>
+                        </div>
+                    </td>
+                </tr>
+                {@/each}
+            </script>
+            <!--/ food item template -->
+
+            <%- include('common/footer.ejs', { module: "food-list" }) %>
+        </div>
+    </body>
+</html>

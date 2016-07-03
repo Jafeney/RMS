@@ -1,3 +1,12 @@
+<%
+    var _module = 'index';
+    try{
+        _module = module;
+    }catch(e){
+        _module = 'index';
+    }
+%>
+
 <!-- Main Header -->
 <header class="main-header">
 
@@ -6,7 +15,7 @@
 		<!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b>R</b>MS</span>
 		<!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>餐饮管理</b>系统</span>
+		<span class="logo-lg"><b>餐厅管理</b>系统</span>
 	</a>
 
 	<!-- Header Navbar -->
@@ -191,48 +200,66 @@
   		<ul class="sidebar-menu">
     		<li class="header"><i class="fa fa-dashboard"></i> 系统控制台</li>
     		<!-- Optionally, you can add icons to the links -->
-    		<li><a href="#"><i class="fa fa-home"></i> <span>系统主页</span></a></li>
-    		<li class="treeview">
-      			<a href="#"><i class="fa fa-book"></i> <span>菜谱管理</span><i class="fa fa-angle-left pull-right"></i></a>
+    		<li <% if (_module == "index") { %> class="active" <% } %> ><a href="/html/admin/index.min.html"><i class="fa fa-home"></i> <span>系统主页</span></a></li>
+    		<li class="treeview <% if (_module == 'food') { %> active <% } %> ">
+      			<a href="javascript:void(0)"><i class="fa fa-book"></i> <span>菜式管理</span><i class="fa fa-angle-left pull-right"></i></a>
       			<ul class="treeview-menu">
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 轮播配置</a></li>
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 今日推荐</a></li>
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 明日预告</a></li>
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 特色菜式</a></li>
+        			<li><a href="/html/admin/food-list.min.html"><i class="fa fa-circle-o"></i> 分类清单</a></li>
+        			<li><a href="/html/admin/food-add.min.html"><i class="fa fa-circle-o"></i> 新品添加</a></li>
+        			<li><a href="/html/admin/food-statist.min.html"><i class="fa fa-circle-o"></i> 消费统计</a></li>
       			</ul>
     		</li>
-    		<li class="treeview">
-      			<a href="#"><i class="fa fa-map"></i> <span>餐位管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+    		<li class="treeview <% if (_module == 'seat') { %> active <% } %>  ">
+      			<a href="javascript:void(0)"><i class="fa fa-map"></i> <span>餐位管理</span> <i class="fa fa-angle-left pull-right"></i></a>
       			<ul class="treeview-menu">
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 当前餐位</a></li>
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 流量统计</a></li>
+        			<li><a href="/html/admin/seat-current.min.html"><i class="fa fa-circle-o"></i> 当前餐位</a></li>
+		  			<li><a href="/html/admin/seat-manage.min.html"><i class="fa fa-circle-o"></i> 餐位调整</a></li>
+        			<li><a href="/html/admin/seat-analysis.min.html"><i class="fa fa-circle-o"></i> 客流分析</a></li>
       			</ul>
     		</li>
-    		<li class="treeview">
-      			<a href="#"><i class="fa fa-barcode"></i> <span>结算系统</span><i class="fa fa-angle-left pull-right"></i></a>
+			<li class="treeview <% if (_module == 'purchase') { %> active <% } %>  ">
+      			<a href="javascript:void(0)"><i class="fa fa-shopping-cart"></i> <span>采购管理</span> <i class="fa fa-angle-left pull-right"></i></a>
       			<ul class="treeview-menu">
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 订单处理</a></li>
-        			<li><a href="#"><i class="fa fa-circle-o"></i> 当面收钱</a></li>
+        			<li><a href="/html/admin/purchase-statist.min.html"><i class="fa fa-circle-o"></i> 采购统计</a></li>
+		  			<li><a href="/html/admin/purchase-add.min.html"><i class="fa fa-circle-o"></i> 新的采购</a></li>
       			</ul>
     		</li>
-            <li class="treeview">
-              	<a href="#"><i class="fa fa-users"></i> <span>会员管理</span><i class="fa fa-angle-left pull-right"></i></a>
+    		<li class="treeview <% if (_module == 'order') { %> active <% } %>  ">
+      			<a href="javascript:void(0)"><i class="fa fa-barcode"></i> <span>订单管理</span><i class="fa fa-angle-left pull-right"></i></a>
+      			<ul class="treeview-menu">
+        			<li><a href="/html/admin/order-manage.min.html"><i class="fa fa-circle-o"></i> 订单统计</a></li>
+        			<li><a href="/html/admin/order-account.min.html"><i class="fa fa-circle-o"></i> 结算收钱</a></li>
+      			</ul>
+    		</li>
+            <li class="treeview <% if (_module == 'users') { %> active <% } %>  ">
+              	<a href="javascript:void(0)"><i class="fa fa-users"></i> <span>会员管理</span><i class="fa fa-angle-left pull-right"></i></a>
               	<ul class="treeview-menu">
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 会员统计</a></li>
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 积分规则</a></li>
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 优惠券</a></li>
+                	<li><a href="/html/admin/users-statist.min.html"><i class="fa fa-circle-o"></i> 会员统计</a></li>
+                	<li><a href="/html/admin/users-rule.min.html"><i class="fa fa-circle-o"></i> 积分规则</a></li>
+                	<li><a href="/html/admin/users-coupon.min.html"><i class="fa fa-circle-o"></i> 优惠券</a></li>
               	</ul>
             </li>
-            <li class="treeview">
-              	<a href="#"><i class="fa fa-bar-chart"></i> <span>财务统计</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <li class="treeview <% if (_module == 'finance') { %> active <% } %>  ">
+              	<a href="javascript:void(0)"><i class="fa fa-bar-chart"></i> <span>财务管理</span> <i class="fa fa-angle-left pull-right"></i></a>
               	<ul class="treeview-menu">
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 日统计</a></li>
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 周统计</a></li>
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 月统计</a></li>
-                	<li><a href="#"><i class="fa fa-circle-o"></i> 年统计</a></li>
+                	<li><a href="/html/admin/finance-statist.min.html"><i class="fa fa-circle-o"></i> 收支统计</a></li>
+                	<li><a href="/html/admin/finance-analysis.min.html"><i class="fa fa-circle-o"></i> 财务分析</a></li>
               	</ul>
             </li>
-            <li><a href="#"><i class="fa fa-comments"></i> <span>信息推送</span></a></li>
+			<li class="treeview <% if (_module == 'message') { %> active <% } %>  ">
+              	<a href="javascript:void(0)"><i class="fa fa-comments"></i> <span>推送管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              	<ul class="treeview-menu">
+                	<li><a href="/html/admin/message-statist.min.html"><i class="fa fa-circle-o"></i> 推送统计</a></li>
+                	<li><a href="/html/admin/message-add.min.html"><i class="fa fa-circle-o"></i> 新的推送</a></li>
+              	</ul>
+            </li>
+			<li class="treeview <% if (_module == 'system') { %> active <% } %>  ">
+              	<a href="javascript:void(0)"><i class="fa fa-cogs"></i> <span>系统管理</span> <i class="fa fa-angle-left pull-right"></i></a>
+              	<ul class="treeview-menu">
+                	<li><a href="/html/admin/system-carousel.min.html"><i class="fa fa-circle-o"></i> 轮播配置</a></li>
+                	<li><a href="/html/admin/system-basic.min.html"><i class="fa fa-circle-o"></i> 基本配置</a></li>
+              	</ul>
+            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

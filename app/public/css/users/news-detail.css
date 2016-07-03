@@ -400,6 +400,93 @@
             transform: scale(0.7);
   }
 }
+.mask {
+  position: fixed;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal-box {
+  width: 10.66666667rem;
+  max-height: 6.4rem;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 0.256rem;
+  text-align: center;
+}
+.modal-box h2 {
+  font-size: 16px;
+  padding: 0.32rem;
+  color: #333;
+}
+[data-dpr="2"] .modal-box h2 {
+  font-size: 32px;
+}
+[data-dpr="2.5"] .modal-box h2 {
+  font-size: 40px;
+}
+[data-dpr="2.75"] .modal-box h2 {
+  font-size: 44px;
+}
+[data-dpr="3"] .modal-box h2 {
+  font-size: 48px;
+}
+[data-dpr="4"] .modal-box h2 {
+  font-size: 64px;
+}
+.modal-box p {
+  font-size: 14px;
+  padding: 0.42666667rem 0.256rem;
+  color: #666;
+}
+[data-dpr="2"] .modal-box p {
+  font-size: 28px;
+}
+[data-dpr="2.5"] .modal-box p {
+  font-size: 35px;
+}
+[data-dpr="2.75"] .modal-box p {
+  font-size: 39px;
+}
+[data-dpr="3"] .modal-box p {
+  font-size: 42px;
+}
+[data-dpr="4"] .modal-box p {
+  font-size: 56px;
+}
+.modal-box .mask-btns {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  height: 1.70666667rem;
+  line-height: 1.70666667rem;
+  border-top: 1px solid #cecece;
+  color: #666;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.modal-box .mask-btns span {
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  box-sizing: border-box;
+}
+.modal-box .mask-btns span:first-child {
+  border-right: 1px solid #cecece;
+}
 html {
   color: #000;
   background: #fff;
@@ -771,24 +858,134 @@ body {
   width: 100%;
   height: auto;
 }
-.news-detail p {
+.news-detail div {
   font-size: 12px;
   padding: 0.21333333rem 0.512rem;
 }
-[data-dpr="2"] .news-detail p {
+[data-dpr="2"] .news-detail div {
   font-size: 24px;
 }
-[data-dpr="2.5"] .news-detail p {
+[data-dpr="2.5"] .news-detail div {
   font-size: 30px;
 }
-[data-dpr="2.75"] .news-detail p {
+[data-dpr="2.75"] .news-detail div {
   font-size: 33px;
 }
-[data-dpr="3"] .news-detail p {
+[data-dpr="3"] .news-detail div {
   font-size: 36px;
 }
-[data-dpr="4"] .news-detail p {
+[data-dpr="4"] .news-detail div {
   font-size: 48px;
+}
+.coupon-receive {
+  margin-top: 0.64rem;
+  padding: 0 0.512rem;
+}
+.coupon-receive h2 {
+  font-size: 15px;
+  color: #333;
+}
+[data-dpr="2"] .coupon-receive h2 {
+  font-size: 30px;
+}
+[data-dpr="2.5"] .coupon-receive h2 {
+  font-size: 38px;
+}
+[data-dpr="2.75"] .coupon-receive h2 {
+  font-size: 41px;
+}
+[data-dpr="3"] .coupon-receive h2 {
+  font-size: 45px;
+}
+[data-dpr="4"] .coupon-receive h2 {
+  font-size: 60px;
+}
+.coupon-receive h3 {
+  font-size: 12px;
+  color: #999;
+  margin: 0.21333333rem 0;
+}
+[data-dpr="2"] .coupon-receive h3 {
+  font-size: 24px;
+}
+[data-dpr="2.5"] .coupon-receive h3 {
+  font-size: 30px;
+}
+[data-dpr="2.75"] .coupon-receive h3 {
+  font-size: 33px;
+}
+[data-dpr="3"] .coupon-receive h3 {
+  font-size: 36px;
+}
+[data-dpr="4"] .coupon-receive h3 {
+  font-size: 48px;
+}
+.coupon-receive h3 label {
+  color: #666;
+  display: inline-block;
+  width: 0.64rem;
+  font-size: 12px;
+}
+[data-dpr="2"] .coupon-receive h3 label {
+  font-size: 24px;
+}
+[data-dpr="2.5"] .coupon-receive h3 label {
+  font-size: 30px;
+}
+[data-dpr="2.75"] .coupon-receive h3 label {
+  font-size: 33px;
+}
+[data-dpr="3"] .coupon-receive h3 label {
+  font-size: 36px;
+}
+[data-dpr="4"] .coupon-receive h3 label {
+  font-size: 48px;
+}
+.coupon-receive h3 strong {
+  color: #ff4965;
+  margin: 0 0.10666667rem;
+  font-size: 13px;
+}
+[data-dpr="2"] .coupon-receive h3 strong {
+  font-size: 25px;
+}
+[data-dpr="2.5"] .coupon-receive h3 strong {
+  font-size: 31px;
+}
+[data-dpr="2.75"] .coupon-receive h3 strong {
+  font-size: 34px;
+}
+[data-dpr="3"] .coupon-receive h3 strong {
+  font-size: 38px;
+}
+[data-dpr="4"] .coupon-receive h3 strong {
+  font-size: 50px;
+}
+.coupon-receive h3 span {
+  font-size: 10px;
+  background: #ff4965;
+  text-align: center;
+  float: right;
+  padding: 0.21333333rem 0.42666667rem;
+  color: #fff;
+  border-radius: 5px;
+  position: relative;
+  top: -0.17066667rem;
+}
+[data-dpr="2"] .coupon-receive h3 span {
+  font-size: 20px;
+}
+[data-dpr="2.5"] .coupon-receive h3 span {
+  font-size: 25px;
+}
+[data-dpr="2.75"] .coupon-receive h3 span {
+  font-size: 28px;
+}
+[data-dpr="3"] .coupon-receive h3 span {
+  font-size: 30px;
+}
+[data-dpr="4"] .coupon-receive h3 span {
+  font-size: 40px;
 }
 .review-list {
   margin-top: 0.64rem;
@@ -893,7 +1090,7 @@ body {
 [data-dpr="4"] .review-item .info-box h3 span {
   font-size: 40px;
 }
-.review-item .info-box p {
+.review-item .info-box div {
   font-size: 11px;
   color: #333;
   overflow: hidden;
@@ -903,19 +1100,19 @@ body {
   -moz-text-overflow: ellipsis;
   white-space: nowrap;
 }
-[data-dpr="2"] .review-item .info-box p {
+[data-dpr="2"] .review-item .info-box div {
   font-size: 22px;
 }
-[data-dpr="2.5"] .review-item .info-box p {
+[data-dpr="2.5"] .review-item .info-box div {
   font-size: 28px;
 }
-[data-dpr="2.75"] .review-item .info-box p {
+[data-dpr="2.75"] .review-item .info-box div {
   font-size: 30px;
 }
-[data-dpr="3"] .review-item .info-box p {
+[data-dpr="3"] .review-item .info-box div {
   font-size: 33px;
 }
-[data-dpr="4"] .review-item .info-box p {
+[data-dpr="4"] .review-item .info-box div {
   font-size: 44px;
 }
 .review-input {

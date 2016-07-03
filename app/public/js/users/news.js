@@ -3,8 +3,11 @@ var template = require('../util/template');
 var lazyload = require('../util/lazyload')();
 var footer = require('../util/footer');
 var config = require('../util/config');
+var Encode = require('../util/encode');
+var Time = require('../util/time');
+var $ = window.$;
 
-var newsModule = (function($) {
+var newsModule = (function() {
 
 	var init = function() {
 		getData(render);
@@ -12,88 +15,60 @@ var newsModule = (function($) {
 	};
 
 	var render = function(data) {
-		var _tpl = template($('#news-tpl').html(), {lists: data});
+		data.forEach(function(item) {
+			item.img = item.n_img;
+			item.title = item.n_title;
+			item.content = Encode.html_plain(Encode.html_decode(item.n_detail));
+			item.time = Time.getTimeString(new Date(item.n_uptime));
+			item.id = item.n_id;
+		});
+
+		var _tpl = template($('#news-tpl').html(), {
+			lists: data
+		});
 		$('#J_news').append(_tpl);
 		lazyload.getLazyImg();
 	};
 
 	var getData = function(callback) {
 
-		var data = [
-			{
-				img: '../../img/banner1.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 0
+		$.ajax({
+			type: 'get',
+			url: '/news/get/category',
+			data: {
+				category: 'all'
 			},
-			{
-				img: '../../img/e4.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 1
+			dataType: 'json',
+			success: function(res) {
+				if (res.status && typeof callback === "function") {
+					callback(res.data);
+				}
 			},
-			{
-				img: '../../img/e5.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 2
-			},
-			{
-				img: '../../img/banner1.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 3
-			},
-			{
-				img: '../../img/e5.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 4
-			},
-			{
-				img: '../../img/e2.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 5
-			},
-			{
-				img: '../../img/e1.jpg',
-				title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-				content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-				time: "2016-03-26 20:20:30",
-				id: 6
+			error: function(err) {
+				console.log('GetData Error:' + err);
 			}
-		];
-
-		if (typeof callback === "function") {
-			callback(data);
-		}
+		});
 	};
 
 	var eventBind = function() {
 
-		// 加载更多 
+		// 加载更多
 		$('#J_loadMore').on('tap', function() {
 			getData(render);
 		});
 
-		// 进入详情页 
-		$('.J_news-item').on('tap', function() {
-			location.href = 'news-detail.min.html?nid='+$(this).data('id');
+		// 进入详情页
+		$(document).on('tap', '.J_news-item', function() {
+			location.href = 'news-detail.min.html?nid=' + $(this).data('id');
 		});
-		
+
 	};
 
 	init();
 
-})($);
-},{"../util/config":2,"../util/footer":3,"../util/lazyload":4,"../util/template":5}],2:[function(require,module,exports){
+})();
+
+},{"../util/config":2,"../util/encode":3,"../util/footer":4,"../util/lazyload":5,"../util/template":6,"../util/time":7}],2:[function(require,module,exports){
 var config = {
 	version: '1.0.0',
 	author: 'Jafeney',
@@ -102,7 +77,55 @@ var config = {
 
 module.exports = config;
 },{}],3:[function(require,module,exports){
-var footer = (function($){
+/**
+ * @desc html片段转义和反转义
+ **/
+
+var $ = window.$;
+
+module.exports = {
+    // HTML片段转义
+    html_encode: function(str) {
+        var s = "";
+        if (str.length === 0) {
+            return "";
+        }
+        s = str.replace(/&/g, "&amp;");
+        s = s.replace(/</g, "&lt;");
+        s = s.replace(/>/g, "&gt;");
+        s = s.replace(/ /g, "&nbsp;");
+        s = s.replace(/\'/g, "&#39;");
+        s = s.replace(/\"/g, "&quot;");
+        s = s.replace(/\n/g, "<br>");
+        return s;
+    },
+    // HTML片段反转义
+    html_decode: function(str) {
+        var s = "";
+        if (str.length === 0) {
+            return "";
+        }
+        s = str.replace(/&amp;/g, "&");
+        s = s.replace(/&lt;/g, "<");
+        s = s.replace(/&gt;/g, ">");
+        s = s.replace(/&nbsp;/g, " ");
+        s = s.replace(/&#39;/g, "\'");
+        s = s.replace(/&quot;/g, "\"");
+        s = s.replace(/<br>/g, "\n");
+        return s;
+    },
+    // 把HTML片段转为纯文本
+    html_plain: function(str) {
+        var node = $('<p></p>');
+        node.html(str);
+        return node.html(str).text();
+    }
+};
+
+},{}],4:[function(require,module,exports){
+var $ = window.$;
+
+var footer = (function(){
 
 	$('#J_footerBar li').on('tap', function(){
 		if($(this).hasClass('active')){
@@ -112,10 +135,11 @@ var footer = (function($){
 		location.href = link;
 	});
 
-})($);
+})();
 
 module.exports = footer;
-},{}],4:[function(require,module,exports){
+
+},{}],5:[function(require,module,exports){
 var defaultConfig = {
 
     threshold : $(window).height() * 2,
@@ -289,7 +313,7 @@ var lazyload = function(config) {
 
 module.exports = lazyload;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (global){
 // @desc 前段模板引擎 参照 juicer http://juicer.name
 // @author 王玉林 <veryued@gmail.com>
@@ -764,5 +788,29 @@ juicer.to_html = function(tpl, data, options) {
 };
 
 module.exports = juicer;
+
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],7:[function(require,module,exports){
+/**
+ * @desc 时间处理工具函数
+ **/
+
+module.exports = {
+    // 获取本地时间字符串
+    getTimeString: function(date) {
+        return date.getFullYear() + '-' + this.dateNumFormat(date.getMonth() +
+                1) + '-' + this.dateNumFormat(date.getDate()) + ' ' +
+            this.dateNumFormat(date.getHours()) + ':' + this.dateNumFormat(
+                date.getMinutes()) +
+            ':' + this.dateNumFormat(date.getSeconds());
+    },
+    // 格式化日期格式
+    dateNumFormat: function(num) {
+        if (num < 10) {
+            return '0' + num;
+        }
+        return num;
+    }
+};
+
 },{}]},{},[1])

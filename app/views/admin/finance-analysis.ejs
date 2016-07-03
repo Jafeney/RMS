@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{module:'finance'}) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			财务管理
+            			<small>Finance Manage Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+                        <li class="active"><a href="#"><i class="fa fa-bar-chart"></i> 财务管理</a></li>
+            			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> 收支统计</a></li>
+          			</ol>
+        		</section>
+
+                <!-- Main content -->
+        		<section class="content">
+                </section>
+            </div>
+
+            <%- include('common/footer.ejs',{module:'finance-analysis'}) %>
+        </div>
+    </body>
+</html>

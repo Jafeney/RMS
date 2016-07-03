@@ -1,6 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var template = require('../util/template');
 var config = require('../util/config');
+var modal = require('../util/modal');
+var $ = window.$;
 
 var recordModule = (function() {
 
@@ -20,74 +22,66 @@ var recordModule = (function() {
 			{
 				id: 1,
 				time: "2016-04-01",
-				money: 120,
-				coupon: '情人节双人优惠',
 				payMoney: 120*88/100,
-				seat: 'F11'
+				coupon: '情人节双人优惠',
+				seat: 'F11',
+				states: 0
 			},
 			{
 				id: 2,
 				time: "2016-04-01",
-				money: 50,
-				coupon: '春节单人优惠',
 				payMoney: 50*95/100	,
-				seat: 'F12'
+				coupon: '春节单人优惠',
+				seat: 'F12',
+				states: 0
 			},
 			{
 				id: 3,
 				time: "2016-04-01",
-				money: 50,
 				coupon: '愚人节屌丝优惠',
 				payMoney: 50*95/100,
-				seat: 'F13'
+				seat: 'F13',
+				states: 1
 			},
 			{
 				id: 2,
 				time: "2016-04-01",
-				money: 50,
 				coupon: '春节单人优惠',
 				payMoney: 50*95/100	,
-				seat: 'F14'
+				seat: 'F14',
+				states: 1
 			},
 			{
 				id: 3,
 				time: "2016-04-01",
-				money: 50,
 				coupon: '愚人节屌丝优惠',
 				payMoney: 50*95/100,
-				seat: 'F15'
+				seat: 'F15',
+				states: 1
 			},
 			{
 				id: 2,
 				time: "2016-04-01",
-				money: 50,
 				coupon: '春节单人优惠',
 				payMoney: 50*95/100	,
-				seat: 'F16'
+				seat: 'F16',
+				states: 1
 			},
 			{
 				id: 3,
 				time: "2016-04-01",
-				money: 50,
 				coupon: '愚人节屌丝优惠',
 				payMoney: 50*95/100,
-				seat: 'F19'
+				seat: 'F19',
+				states: 1
 			},
 			{
 				id: 1,
 				time: "2016-04-01",
-				money: 120,
 				coupon: '情人节双人优惠',
 				payMoney: 120*88/100,
-				seat: 'F5'
-			},
-			{
-				id: 2,
-				time: "2016-04-01",
-				money: 50,
-				coupon: '春节单人优惠',
-				payMoney: 50*95/100	,
-				seat: 'F2'
+				seat: 'F5',
+				states: 1
 			}
 		];
 
@@ -96,16 +90,43 @@ var recordModule = (function() {
 		}
 	};
 
-	var eventBind = function() {};
+	var eventBind = function() {
+
+		// 打开评价遮罩
+		$(document).on('tap', '.J_btn-evalate', function() {
+			$('#J_mask-evalate').removeClass('hidden');
+		});
+
+		// 关闭评价遮罩
+		$('.J_mask-close').on('tap', function() {
+			$('#J_mask-evalate').addClass('hidden');
+		});
+
+		// 选择满意分
+		$('.score-item').on('tap', function() {
+			if (!$(this).hasClass('active')) {
+				$(this).addClass('active').siblings().removeClass('active');
+			}
+		});
+
+		// 确定评价
+		$('#J_submit-evalate').on('tap', function() {
+			var _score = $('.score-item.active').data('score'),
+				_content = $('#evalate-txt').val();
+			modal.confirm({
+				content: '感谢您的评价！'
+			})
+		});
+	};
 
 	var chartLine = function() {
-		var data1 = [120,50,50,50,50,50,120,120];
-		var data2 = [105.6,47.5,47.5,47.5,47.5,47.5,105.6,105.6];
+		var data1 = [120,200,400,500,300,50,120,120];
+		var data2 = data1.map(function(word){return word*8.8});
 		var lineChartData = {
 			labels : ["1月","2月","3月","4月","5月","6月","7月"],
 			datasets : [
 				{
-					label: "原先支付",
+					label: "2016年",
 					fillColor : "rgba(220,220,220,0.2)",
 					strokeColor : "rgba(220,220,220,1)",
 					pointColor : "rgba(220,220,220,1)",
@@ -115,7 +136,7 @@ var recordModule = (function() {
 					data : data1
 				},
 				{
-					label: "优惠支付",
+					label: "2015年",
 					fillColor : "rgba(151,187,205,0.2)",
 					strokeColor : "rgba(151,187,205,1)",
 					pointColor : "rgba(151,187,205,1)",
@@ -136,8 +157,9 @@ var recordModule = (function() {
 
 	init();
 
-})($);
-},{"../util/config":2,"../util/template":3}],2:[function(require,module,exports){
+})();
+
+},{"../util/config":2,"../util/modal":3,"../util/template":4}],2:[function(require,module,exports){
 var config = {
 	version: '1.0.0',
 	author: 'Jafeney',
@@ -146,6 +168,68 @@ var config = {
 
 module.exports = config;
 },{}],3:[function(require,module,exports){
+/**
+ * @desc 全局模态窗口
+ **/
+ var $ = window.$;
+
+var modal = {
+    confirm: function(opts) {
+        var title = opts.title || '提示',
+            content = opts.content || '提示内容',
+            callback = opts.callback;
+        var newNode = [
+            '<div class="mask" id="J_mask">',
+                '<div class="modal-box">',
+                    '<h2>',
+                        title,
+                    '</h2>',
+                    '<p>',
+                        content,
+                    '</p>',
+                    '<div class="mask-btns">',
+                        '<span id="J_cancel">取消</span>',
+                        '<span id="J_confirm">确定</span>',
+                    '</div>',
+                '</div>',
+            '</div>',
+        ].join('');
+        $('#J_mask').remove();
+        $('body').append(newNode);
+
+        $('#J_cancel').on('tap', function() {
+            $('#J_mask').remove();
+        });
+
+        $('#J_confirm').on('tap', function() {
+            if (typeof callback === 'function') {
+                callback();
+            }
+            $('#J_mask').remove();
+        });
+    },
+    bt3Confirm: function(opts) {
+        var title = opts.title || '提示',
+            content = opts.content || '提示内容',
+            callback = opts.callback;
+
+        $('#J_modal-title').html(title);
+        $('#J_modal-content').html(content);
+
+        $('#myModal').modal();
+        $('#J_confirm-sure').on('click', function() {
+            if (typeof callback === 'function') {
+                callback();
+            }
+            $('#myModal').modal('hide');
+        });
+
+    }
+};
+
+module.exports = modal;
+
+},{}],4:[function(require,module,exports){
 (function (global){
 // @desc 前段模板引擎 参照 juicer http://juicer.name
 // @author 王玉林 <veryued@gmail.com>
@@ -620,5 +704,6 @@ juicer.to_html = function(tpl, data, options) {
 };
 
 module.exports = juicer;
+
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}]},{},[1])

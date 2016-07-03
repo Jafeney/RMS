@@ -3,128 +3,198 @@ var template = require('../util/template');
 var lazyload = require('../util/lazyload')();
 var footer = require('../util/footer');
 var config = require('../util/config');
+var Encode = require('../util/encode');
+var Modal = require('../util/modal');
+var Time = require('../util/time');
+var Cookie = require('../util/cookie');
+var $ = window.$;
 
-var newsDetailModule = (function($) {
+var newsModule = (function() {
+
+    var _nid = location.search.split('=')[1];
+    var cid = 1;
+    var uid = window.localStorage.uid || 1;
+    var nid = 1;
 
     var init = function() {
-        getNewsDetail(renderNewsDetail);
-        getReviewList(renderReviewList);
+        getDetail(renderDatail);
         eventBind();
     };
 
-    var getNid = function() {
-        return location.search.split('=')[1];
-    }
+    var renderDatail = function(data) {
+        data.img = data.n_img;
+        data.title = data.n_title;
+        data.content = Encode.html_decode(data.n_detail);
+        data.time = Time.getTimeString(new Date(data.n_uptime));
+        data.id = data.n_id;
+        cid = data.coupon_c_id;
+        nid = data.n_id;
 
-    var renderNewsDetail = function(data) {
-        var _tpl = template($('#newsDetail-tpl').html(), {data: data[getNid()]});
+        var _tpl = template($('#newsDetail-tpl').html(), {
+            data: data
+        });
         $('#J_news-detail').html(_tpl);
+        lazyload.getLazyImg();
+
+        getCoupon(renderCoupon);
+        getReviews(renderReviews);
     };
 
-    var renderReviewList = function(data) {
-        var _tpl = template($('#reviewList-tpl').html(), {lists: data});
-        $('#J_review-list').append(_tpl);
+    var getDetail = function(callback) {
+        $.ajax({
+            type: 'get',
+            url: '/news/get/id/',
+            data: {
+                id: _nid
+            },
+            dataType: 'json',
+            success: function(res) {
+                if (res.status && typeof callback ===
+                    "function") {
+                    callback(res.data[0]);
+                }
+            },
+            error: function(err) {
+                console.log('GetData Error:' + err);
+            }
+        });
+    };
+
+    var renderReviews = function(data) {
+        data.map(function(item) {
+            item.id = item.e_id;
+            item.uid = item.e_user_id;
+            item.img = item.u_img;
+            item.name = item.u_name;
+            item.time = Time.getTimeString(new Date(item.e_uptime));
+            item.contents = item.e_content;
+        });
+
+        var _tpl = template($('#reviewList-tpl').html(), {
+            lists: data
+        });
+        $('#J_review-list').html(_tpl);
         lazyload.getLazyImg();
     };
 
-    var getNewsDetail = function(callback) {
-        var data = [
-            {
-                img: '../../img/banner1.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 0
+    var getReviews = function(callback) {
+        $.ajax({
+            type: 'get',
+            url: '/evaluate/get/newsId',
+            data: {
+                newsId: nid
             },
-            {
-                img: '../../img/e4.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 1
+            dataType: 'json',
+            success: function(res) {
+                if (res.status && (typeof callback === 'function')) {
+                    renderReviews(res.data);
+                }
             },
-            {
-                img: '../../img/e5.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 2
-            },
-            {
-                img: '../../img/banner1.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 3
-            },
-            {
-                img: '../../img/e5.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖, 还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 4
-            },
-            {
-                img: '../../img/e2.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 5
-            },
-            {
-                img: '../../img/e1.jpg',
-                title: '[外卖探店] 藏在大街里的暖心卤肉饭 美食志 味道好',
-                content: '不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志不只是怂外卖，还传递美好生活--美食志。',
-                time: "2016-03-26 20:20:30",
-                id: 6
+            fail: function() {
+                console.log('GetCoupon Error!');
             }
-        ];
-        if (typeof callback === "function") {
-            callback(data);
-        }
-
+        });
     };
 
-    var getReviewList = function(callback) {
-        var reviewList = [
-            {
-                id: 1,
-                img: 'http://avatar.csdn.net/F/8/E/1_u011413061.jpg',
-                uid: 1,
-                name: '思诚',
-                time: '2天前',
-                content: '吃了30年了，还是这个老味道。'
-            },
-            {
-                id: 1,
-                img: 'http://avatar.csdn.net/F/8/E/1_u011413061.jpg',
-                uid: 1,
-                name: '思诚',
-                time: '2天前',
-                content: '吃了30年了，还是这个老味道。吃了30年了，还是这个老味道。'
-            },
-            {
-                id: 1,
-                img: 'http://avatar.csdn.net/F/8/E/1_u011413061.jpg',
-                uid: 1,
-                name: '思诚',
-                time: '2天前',
-                content: '吃了30年了，还是这个老味道。'
-            }
-        ];
-        if (typeof callback === "function") {
-            callback(reviewList);
+    var renderCoupon = function(data) {
+        data.id = data.c_id;
+        data.discount = data.c_discount;
+        data.title = data.c_name;
+
+        if (data.id !==1) {
+           var _tpl = template($('#coupon-tpl').html(), {
+               data: data
+           });
+           $('#J_coupon').html(_tpl); 
         }
+    };
+
+    var getCoupon = function(callback) { 
+        $.ajax({
+            type: 'get',
+            url: '/coupon/get/id',
+            data: {
+                id: cid
+            },
+            dataType: 'json',
+            success: function(res) {
+                if (res.status && (typeof callback === 'function')) {
+                    renderCoupon(res.data[0]);
+                }
+            },
+            fail: function() {
+                console.log('GetCoupon Error!');
+            }
+        });
     };
 
     var eventBind = function() {
-        
+
+        // 加载更多
+        $('#J_loadMore').on('tap', function() {
+            Modal.confirm({
+                content: '没有更多啦！'
+            });
+        });
+
+        // 领取优惠券
+        $(document).on('tap', '.J_btn-receive', function() {
+            Modal.confirm({
+                content: '优惠券领取成功！<br/>请到 <strong>我的优惠券</strong> 查看'
+            })
+        });
+
+        // 进入详情页
+        $(document).on('tap', '.J_news-item', function() {
+            location.href = 'news-detail.min.html?nid=' + $(
+                this).data('id');
+        });
+
+        // 发表评论
+        $('#J_review-submit').on('tap', function() {
+
+            if (Cookie.getCookie({
+                    name: 'token'
+                })) {
+                var _content = $('#J_review-value').val();
+                if (_content.length > 3) {
+                    $.ajax({
+                        type: 'post',
+                        url: '/evaluate/add',
+                        data: {
+                            content: _content,
+                            newsId: nid,
+                            userId: uid
+                        },
+                        success: function(res) {
+                            if (res.status) { 
+                                $('#J_review-value').val('');
+                                getReviews(renderReviews);
+                            }
+                        },
+                        fail: function() {
+                            console.log('添加评论失败');
+                        }
+                    });
+                }
+            } else {
+                Modal.confirm({
+                    content: '您还没有登录哦！',
+                    callback: function() {
+                        location.href = "login.min.html?returnURL=" +
+                            location.href;
+                    }
+                });
+            }
+        });
+
     };
 
     init();
 
-})($);
-},{"../util/config":2,"../util/footer":3,"../util/lazyload":4,"../util/template":5}],2:[function(require,module,exports){
+})();
+
+},{"../util/config":2,"../util/cookie":3,"../util/encode":4,"../util/footer":5,"../util/lazyload":6,"../util/modal":7,"../util/template":8,"../util/time":9}],2:[function(require,module,exports){
 var config = {
 	version: '1.0.0',
 	author: 'Jafeney',
@@ -133,7 +203,117 @@ var config = {
 
 module.exports = config;
 },{}],3:[function(require,module,exports){
-var footer = (function($){
+/**
+ * cookie 基本操作
+ */
+
+var cookie = (function() {
+
+	/**
+	 * [读取cookie]
+	 * @param  {[type]} options [参数对象]
+	 * @return {[type]}         [对应cookie的值]
+	 */
+ 	var getCookie = function(options) {
+		var arr,reg=new RegExp("(^| )"+options.name+"=([^;]*)(;|$)");
+		if(arr=document.cookie.match(reg)){
+			return unescape(arr[2]);
+		}
+		else{
+			return null;
+		}
+	};
+
+	/**
+	 * [添加一个cookie]
+	 * @param {[type]} options [参数对象]
+	 */
+	var addCookie = function(options) {
+		var _name = options.name,
+			_value = options.value,
+			_expiresHours = options.expiresHours;
+		var _cookieString = _name + "=" + escape(_value);
+		//判断是否设置过期时间
+		if (_expiresHours > 0) {
+			var _date = new Date();
+			_date.setTime(_date.getTime() + _expiresHours * 3600 * 1000);
+			_cookieString = _cookieString + "; expires=" + _date.toGMTString();
+		}
+		document.cookie = _cookieString;
+	};
+
+
+	/**
+	 * [删除指定名称的cookie]
+	 * @param  {[type]} options [参数对象]
+	 * @return {[type]}         [void]
+	 */
+	var deleteCookie = function(options) {
+		var _date = new Date(),
+			_name = options.name;
+		_date.setTime(_date.getTime() - 10000);
+		document.cookie = _name + "=v; expires=" + _date.toGMTString();
+	};
+
+	return {
+		getCookie: getCookie,
+		addCookie: addCookie,
+		deleteCookie: deleteCookie
+	}
+
+})();
+
+module.exports = cookie;
+},{}],4:[function(require,module,exports){
+/**
+ * @desc html片段转义和反转义
+ **/
+
+var $ = window.$;
+
+module.exports = {
+    // HTML片段转义
+    html_encode: function(str) {
+        var s = "";
+        if (str.length === 0) {
+            return "";
+        }
+        s = str.replace(/&/g, "&amp;");
+        s = s.replace(/</g, "&lt;");
+        s = s.replace(/>/g, "&gt;");
+        s = s.replace(/ /g, "&nbsp;");
+        s = s.replace(/\'/g, "&#39;");
+        s = s.replace(/\"/g, "&quot;");
+        s = s.replace(/\n/g, "<br>");
+        return s;
+    },
+    // HTML片段反转义
+    html_decode: function(str) {
+        var s = "";
+        if (str.length === 0) {
+            return "";
+        }
+        s = str.replace(/&amp;/g, "&");
+        s = s.replace(/&lt;/g, "<");
+        s = s.replace(/&gt;/g, ">");
+        s = s.replace(/&nbsp;/g, " ");
+        s = s.replace(/&#39;/g, "\'");
+        s = s.replace(/&quot;/g, "\"");
+        s = s.replace(/<br>/g, "\n");
+        return s;
+    },
+    // 把HTML片段转为纯文本
+    html_plain: function(str) {
+        var node = $('<p></p>');
+        node.html(str);
+        return node.html(str).text();
+    }
+};
+
+},{}],5:[function(require,module,exports){
+var $ = window.$;
+
+var footer = (function(){
 
 	$('#J_footerBar li').on('tap', function(){
 		if($(this).hasClass('active')){
@@ -143,10 +323,11 @@ var footer = (function($){
 		location.href = link;
 	});
 
-})($);
+})();
 
 module.exports = footer;
-},{}],4:[function(require,module,exports){
+
+},{}],6:[function(require,module,exports){
 var defaultConfig = {
 
     threshold : $(window).height() * 2,
@@ -320,7 +501,69 @@ var lazyload = function(config) {
 
 module.exports = lazyload;
 
-},{}],5:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
+/**
+ * @desc 全局模态窗口
+ **/
+ var $ = window.$;
+
+var modal = {
+    confirm: function(opts) {
+        var title = opts.title || '提示',
+            content = opts.content || '提示内容',
+            callback = opts.callback;
+        var newNode = [
+            '<div class="mask" id="J_mask">',
+                '<div class="modal-box">',
+                    '<h2>',
+                        title,
+                    '</h2>',
+                    '<p>',
+                        content,
+                    '</p>',
+                    '<div class="mask-btns">',
+                        '<span id="J_cancel">取消</span>',
+                        '<span id="J_confirm">确定</span>',
+                    '</div>',
+                '</div>',
+            '</div>',
+        ].join('');
+        $('#J_mask').remove();
+        $('body').append(newNode);
+
+        $('#J_cancel').on('tap', function() {
+            $('#J_mask').remove();
+        });
+
+        $('#J_confirm').on('tap', function() {
+            if (typeof callback === 'function') {
+                callback();
+            }
+            $('#J_mask').remove();
+        });
+    },
+    bt3Confirm: function(opts) {
+        var title = opts.title || '提示',
+            content = opts.content || '提示内容',
+            callback = opts.callback;
+
+        $('#J_modal-title').html(title);
+        $('#J_modal-content').html(content);
+
+        $('#myModal').modal();
+        $('#J_confirm-sure').on('click', function() {
+            if (typeof callback === 'function') {
+                callback();
+            }
+            $('#myModal').modal('hide');
+        });
+
+    }
+};
+
+module.exports = modal;
+
+},{}],8:[function(require,module,exports){
 (function (global){
 // @desc 前段模板引擎 参照 juicer http://juicer.name
 // @author 王玉林 <veryued@gmail.com>
@@ -795,5 +1038,29 @@ juicer.to_html = function(tpl, data, options) {
 };
 
 module.exports = juicer;
+
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],9:[function(require,module,exports){
+/**
+ * @desc 时间处理工具函数
+ **/
+
+module.exports = {
+    // 获取本地时间字符串
+    getTimeString: function(date) {
+        return date.getFullYear() + '-' + this.dateNumFormat(date.getMonth() +
+                1) + '-' + this.dateNumFormat(date.getDate()) + ' ' +
+            this.dateNumFormat(date.getHours()) + ':' + this.dateNumFormat(
+                date.getMinutes()) +
+            ':' + this.dateNumFormat(date.getSeconds());
+    },
+    // 格式化日期格式
+    dateNumFormat: function(num) {
+        if (num < 10) {
+            return '0' + num;
+        }
+        return num;
+    }
+};
+
 },{}]},{},[1])

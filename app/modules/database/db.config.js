@@ -7,7 +7,7 @@ var config = {
 	port: 3306,
 	user: 'root',
 	password: '5566521okOK',
-	database: 'test'
+	database: 'rms'
 };
 
 module.exports = config;

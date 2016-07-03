@@ -1,4 +1,6 @@
-var footer = (function($){
+var $ = window.$;
+
+var footer = (function(){
 
 	$('#J_footerBar li').on('tap', function(){
 		if($(this).hasClass('active')){
@@ -8,6 +10,6 @@ var footer = (function($){
 		location.href = link;
 	});
 
-})($);
+})();
 
 module.exports = footer;

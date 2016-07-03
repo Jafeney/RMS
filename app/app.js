@@ -1,5 +1,5 @@
-var express = require('express'), 
-    http = require('http'), 
+var express = require('express'),
+    http = require('http'),
     path = require('path'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
@@ -37,15 +37,15 @@ server.on('listening', function() {
 // 错误监听
 server.on('error', function(error) {
     switch (error.code) {
-        case 'EACCES': 
+        case 'EACCES':
             console.error(bind + '需要权限许可');
             process.exit(1);
             break;
-        case 'EADDRINUSE': 
+        case 'EADDRINUSE':
             console.error(bind + '端口已被赞用');
             process.exit(1);
             break;
-        default: 
+        default:
             throw error;
     }
 });

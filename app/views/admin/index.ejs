@@ -3,7 +3,7 @@
   	<%- include('common/header.ejs',{}) %>
   	<body class="hold-transition skin-blue sidebar-mini">
     	<div class="wrapper">
-      		<%- include('common/headerSide.ejs',{}) %>
+      		<%- include('common/headerSide.ejs', { module: "index" }) %>
 
       		<!-- Content Wrapper. Contains page content -->
       		<div class="content-wrapper">
@@ -21,11 +21,392 @@
 
         		<!-- Main content -->
         		<section class="content">
-          			<!-- Your Page Content Here -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">库存</span>
+                                    <span class="info-box-number">90<small>%</small></span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div><!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">菜品</span>
+                                    <span class="info-box-number">41,410</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div><!-- /.col -->
+
+                        <!-- fix for small devices only -->
+                        <div class="clearfix visible-sm-block"></div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">销量</span>
+                                    <span class="info-box-number">760</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div><!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">新会员</span>
+                                    <span class="info-box-number">2,000</span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">销量统计</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <div class="btn-group">
+                                            <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i></button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p class="text-center">
+                                                <strong>销量统计: 2016年1月份～2016年7月份</strong>
+                                            </p>
+                                            <div class="chart">
+                                                <!-- Sales Chart Canvas -->
+                                                <canvas id="salesChart" style="height: 180px;"></canvas>
+                                            </div><!-- /.chart-responsive -->
+                                        </div><!-- /.col -->
+                                        <div class="col-md-4">
+                                            <p class="text-center">
+                                                <strong>重点指标</strong>
+                                            </p>
+                                            <div class="progress-group">
+                                                <span class="progress-text">在线预订</span>
+                                                <span class="progress-number"><b>160</b>/200</span>
+                                                <div class="progress sm">
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                                                </div>
+                                            </div><!-- /.progress-group -->
+                                            <div class="progress-group">
+                                                <span class="progress-text">线下购买</span>
+                                                <span class="progress-number"><b>310</b>/400</span>
+                                                <div class="progress sm">
+                                                    <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+                                                </div>
+                                            </div><!-- /.progress-group -->
+                                            <div class="progress-group">
+                                                <span class="progress-text">优惠券购买</span>
+                                                <span class="progress-number"><b>480</b>/800</span>
+                                                <div class="progress sm">
+                                                    <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                                                </div>
+                                            </div><!-- /.progress-group -->
+                                            <div class="progress-group">
+                                                <span class="progress-text">直接购买</span>
+                                                <span class="progress-number"><b>250</b>/500</span>
+                                                <div class="progress sm">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
+                                                </div>
+                                            </div><!-- /.progress-group -->
+                                        </div><!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div><!-- ./box-body -->
+                                <div class="box-footer">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-xs-6">
+                                            <div class="description-block border-right">
+                                                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
+                                                <h5 class="description-header">¥35,210.43</h5>
+                                                <span class="description-text">总营业额</span>
+                                            </div><!-- /.description-block -->
+                                        </div><!-- /.col -->
+                                        <div class="col-sm-3 col-xs-6">
+                                            <div class="description-block border-right">
+                                                <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
+                                                <h5 class="description-header">¥10,390.90</h5>
+                                                <span class="description-text">总支出额</span>
+                                            </div><!-- /.description-block -->
+                                        </div><!-- /.col -->
+                                        <div class="col-sm-3 col-xs-6">
+                                            <div class="description-block border-right">
+                                                <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
+                                                <h5 class="description-header">¥24,813.53</h5>
+                                                <span class="description-text">总利润</span>
+                                            </div><!-- /.description-block -->
+                                        </div><!-- /.col -->
+                                        <div class="col-sm-3 col-xs-6">
+                                            <div class="description-block">
+                                                <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
+                                                <h5 class="description-header">1200</h5>
+                                                <span class="description-text">期望值</span>
+                                            </div><!-- /.description-block -->
+                                        </div>
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-footer -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+
+                    <!-- Main row -->
+                    <div class="row">
+                        <!-- Left col -->
+                        <div class="col-md-8">
+                            <!-- MAP & BOX PANE -->
+                            <div class="box box-success">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">客流分析</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body no-padding">
+                                    <div class="row">
+                                        <div class="col-md-9 col-sm-8">
+                                            <div class="pad">
+                                                <!-- Map will be created here -->
+                                                <div id="world-map-markers" style="height: 325px;"></div>
+                                            </div>
+                                        </div><!-- /.col -->
+                                        <div class="col-md-3 col-sm-4">
+                                            <div class="pad box-pane-right bg-green" style="min-height: 280px">
+                                                <div class="description-block margin-bottom">
+                                                    <div class="sparkbar pad" data-color="#fff">90,70,90,70,75,80,70</div>
+                                                    <h5 class="description-header">8390</h5>
+                                                    <span class="description-text">Visits</span>
+                                                </div><!-- /.description-block -->
+                                                <div class="description-block margin-bottom">
+                                                    <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                                                    <h5 class="description-header">30%</h5>
+                                                    <span class="description-text">Referrals</span>
+                                                </div><!-- /.description-block -->
+                                                <div class="description-block">
+                                                    <div class="sparkbar pad" data-color="#fff">90,50,90,70,61,83,63</div>
+                                                    <h5 class="description-header">70%</h5>
+                                                    <span class="description-text">Organic</span>
+                                                </div><!-- /.description-block -->
+                                            </div>
+                                        </div><!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="box box-info">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">最新订单</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <div class="table-responsive">
+                                        <table class="table no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>消费时间</th>
+                                                    <th>用户手机</th>
+                                                    <th>消费</th>
+                                                    <th>使用优惠券</th>
+                                                    <th>餐位</th>
+                                                    <th>状态</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">2016-04-15 18:40</a></td>
+                                                    <td>15968810223</td>
+                                                    <td><span class="label label-success">¥48.00</span></td>
+                                                    <td><div class="sparkbar" data-color="#00a65a" data-height="20"></div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                                    <td>Samsung Smart TV</td>
+                                                    <td><span class="label label-warning">Pending</span></td>
+                                                    <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                                    <td>iPhone 6 Plus</td>
+                                                    <td><span class="label label-danger">Delivered</span></td>
+                                                    <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                                    <td>Samsung Smart TV</td>
+                                                    <td><span class="label label-info">Processing</span></td>
+                                                    <td><div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                                                    <td>Samsung Smart TV</td>
+                                                    <td><span class="label label-warning">Pending</span></td>
+                                                    <td><div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                                    <td>iPhone 6 Plus</td>
+                                                    <td><span class="label label-danger">Delivered</span></td>
+                                                    <td><div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                                    <td>Call of Duty IV</td>
+                                                    <td><span class="label label-success">Shipped</span></td>
+                                                    <td><div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.table-responsive -->
+                                </div><!-- /.box-body -->
+                                <div class="box-footer clearfix">
+                                    <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">创建新订单</a>
+                                    <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">显示所有订单</a>
+                                </div><!-- /.box-footer -->
+                            </div><!-- /.box -->
+
+                        </div><!-- /.col -->
+
+                        <div class="col-md-4">
+                            <!-- Info Boxes Style 2 -->
+                            <div class="info-box bg-yellow">
+                                <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">库存</span>
+                                    <span class="info-box-number">5,200</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 50%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        本月增长 50%
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                            <div class="info-box bg-green">
+                                <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">好评</span>
+                                    <span class="info-box-number">92,050</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 20%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        本月增长 20%
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                            <div class="info-box bg-red">
+                                <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">访问量</span>
+                                    <span class="info-box-number">114,381</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 70%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        本月增长70%
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+                            <div class="info-box bg-aqua">
+                                <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">客户意见</span>
+                                    <span class="info-box-number">163,921</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-description">
+                                        本月增长40%
+                                    </span>
+                                </div><!-- /.info-box-content -->
+                            </div><!-- /.info-box -->
+
+                            <!-- USERS LIST -->
+                            <div class="box box-danger">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">最新会员</h3>
+                                    <div class="box-tools pull-right">
+                                        <span class="label label-danger">新增8名</span>
+                                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div><!-- /.box-header -->
+                                <div class="box-body no-padding">
+                                    <ul class="users-list clearfix">
+                                        <li>
+                                            <img src="/img/user1-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Alexander Pierce</a>
+                                            <span class="users-list-date">Today</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user8-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Norman</a>
+                                            <span class="users-list-date">Yesterday</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user7-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Jane</a>
+                                            <span class="users-list-date">12 Jan</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user6-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">John</a>
+                                            <span class="users-list-date">12 Jan</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user2-160x160.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Alexander</a>
+                                            <span class="users-list-date">13 Jan</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user5-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Sarah</a>
+                                            <span class="users-list-date">14 Jan</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user4-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Nora</a>
+                                            <span class="users-list-date">15 Jan</span>
+                                        </li>
+                                        <li>
+                                            <img src="/img/user3-128x128.jpg" alt="User Image">
+                                            <a class="users-list-name" href="#">Nadia</a>
+                                            <span class="users-list-date">15 Jan</span>
+                                        </li>
+                                    </ul><!-- /.users-list -->
+                                </div><!-- /.box-body -->
+                                <div class="box-footer text-center">
+                                    <a href="javascript::" class="uppercase">显示所有</a>
+                                </div><!-- /.box-footer -->
+                            </div><!--/.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
         		</section><!-- /.content -->
       		</div><!-- /.content-wrapper -->
 
-			<%- include('common/footer.ejs',{}) %>
+			<%- include('common/footer.ejs', { module: "index" }) %>
 		</div><!-- ./wrapper -->
   	</body>
 </html>

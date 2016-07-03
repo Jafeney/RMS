@@ -7,29 +7,33 @@
 		<!-- news detail -->
 		<div class="news-detail" id="J_news-detail"></div>
 		<!-- /news detail -->
-		
+
+		<!-- coupon receive-->
+		<div class="coupon-receive" id="J_coupon"></div>
+		<!-- /coupon receive -->
+
 		<!-- review list -->
 		<div class="review-list" id="J_review-list"></div>
-		<p class="load-more" id="J_loadMore"> 加载更多 <i class="icon-refresh"</i> </p>
+		<div class="load-more" id="J_loadMore"> 加载更多 <i class="icon-refresh"></i> </div>
 		<div class="review-input">
 			<input type="text" id="J_review-value" />
-			<span class="btn">发布</span>
+			<span class="btn" id="J_review-submit">发表</span>
 		</div>
 		<!-- /review list -->
 	</section>
-	
+
 	<!-- newsDetail template -->
 	<script type="text/template" id="newsDetail-tpl">
 		<h1>${data.title} <span><i class="icon-time"></i>${data.time}</span></h1>
 		<img use-lazyload data-src="${data.img}" data-webp="${data.img}" src="http://s0.husor.cn/image/blank.png" alt="图片" />
-		<p>${data.content}</p>
+		<div>$${data.content}</div>
 	</script>
 	<!-- /newsDetail template -->
 
 	<!-- reviewList template -->
 	<script type="text/template" id="reviewList-tpl">
 		<h2>精选评论</h2>
-		<ul>
+		<ul id="J_reviews">
 		{@each lists as item}
 			<li class="review-item" data-id="${item.id}" >
 				<div class="img-box" data-id="${item.uid}" >
@@ -37,18 +41,27 @@
 				</div>
 				<div class="info-box">
 					<h3>${item.name} <span>发布于 ${item.time}</span></h3>
-					<p>${item.content}</p>
+					<div>${item.contents}</div>
 				</div>
 			</li>
 		{@/each}
 		</ul>
 	</script>
 	<!-- /reviewList template -->
-	
+
+	<!-- coupon template-->
+
+	<script type="text/template" id="coupon-tpl">
+		<h2>优惠券派送</h2>
+		<div class="coupon-item">
+			<h3><label class="icon icon-spinner icon-spin"></label> ${data.title}<strong>${data.discount}折</strong>特惠券 <span class="J_btn-receive" data-id="${data.id}">点击领取</span></h3>
+		</div>
+	</script>
+	<!-- /coupon template -->
+
 	<!-- footer -->
 	<%- include('./common/footer-sub.ejs', { module: "news-detail" }) %>
 	<!-- /footer -->
 
 </body>
 </html>
-

@@ -17,7 +17,7 @@ var hasTransform = function() { // 判断浏览器是否支持transform（仅web
         div.parentNode.removeChild(div);
         return ret;
     },
-    
+
     gv1 = has3d ? 'translate3d(' : 'translate(',
     gv2 = has3d ? ',0)' : ')';
 

@@ -2,7 +2,7 @@
 <html>
 	<%- include('./common/head.ejs', { module: "card" }) %>
 <body>
-	
+
 	<section class="pt-page-scaleUpCenter" id="J_container">
 		<div class="card-list" id="J_cardList"></div>
 	</section>
@@ -10,25 +10,29 @@
 	<script type="text/template" id="cardList-tpl">
 		<ul>
 		{@each lists as item}
+		{@if item.id !== 1}
 			<li class="card-item">
 				<h2>${item.name}</h2>
-				<p><span class="tag">${item.person}</span ><span class="price">${item.money} </span>优惠</p>
+				<p>
+					<span class="tag">${item.person} </span>
+					<span class="price">${item.money} </span>优惠
+				</p>
 				<p class="time">优惠码<span class="price">${item.code}</span></p>
-				<p class="time">${item.time} 到期</p>
+				<p class="time">${item.time}</p>
 				{@if item.use}
-				<p class="btn">${item.state}</p>
+				<p class="btn J_card-use">${item.state}</p>
 				{@else}
 				<p class="btn disabled">${item.state}</p>
 				{@/if}
 			</li>
+		{@/if}
 		{@/each}
 		</ul>
 	</script>
-	
+
 	<!-- footer -->
-	<%- include('./common/footer-sub.ejs', { module: "card" }) %>	
+	<%- include('./common/footer-sub.ejs', { module: "card" }) %>
 	<!-- /footer -->
 
 </body>
 </html>
-

@@ -14,6 +14,7 @@ html,body {
 		line-height: 60rem/@g-base;
 		background-color: @g-color-grey9;
 	}
+
 	.controller {
 		padding:24rem/@g-base 30rem/@g-base;
 		padding-bottom: 30rem/@g-base;
@@ -28,20 +29,20 @@ html,body {
 
 		th {
 			text-align: center;
-			line-height: 70rem/@g-base; 
+			line-height: 70rem/@g-base;
 			color: @g-color-grey3;
 		}
 
 		td {
 			width: 65rem/@g-base;
 			height: 65rem/@g-base;
-			line-height: 65rem/@g-base; 
+			line-height: 65rem/@g-base;
 			color: @g-color-grey1;
 
 			span {
 				width: 60rem/@g-base;
 				height: 60rem/@g-base;
-				line-height: 60rem/@g-base; 
+				line-height: 60rem/@g-base;
 				color: @g-color-grey1;
 
 				&.active {
@@ -135,6 +136,14 @@ html,body {
 		line-height: 70rem/@g-base;
 		.fontSize(24);
 		color: @g-color-grey2;
+		border-bottom: 1px solid @g-color-grey6;
+	}
+
+	.input-seat {
+		height: 70rem/@g-base;
+		line-height: 70rem/@g-base;
+		.fontSize(24);
+		color: @g-color-grey3;
 	}
 }
 
@@ -155,14 +164,7 @@ html,body {
 }
 
 .mask {
-	position: fixed;
-	z-index: 99999;
-	background-color: rgba(0,0,0,.8);
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
+	
 	.main {
 		position: absolute;
 		top: 50%;
@@ -173,7 +175,7 @@ html,body {
 
 		h3 {
 			.fontSize(26);
-			color: @g-color-grey3;
+			color: @g-color-grey2;
 			height: 65rem/@g-base;
 			line-height: 68rem/@g-base;
 			padding-left: 30rem/@g-base;
@@ -217,7 +219,27 @@ html,body {
 				color: @g-color-red;
 			}
 		}
+
+		.seat-item {
+			display: inline-block;
+			vertical-align: top;
+			.fontSize(24);
+			width: 140rem/@g-base;
+			height: 60rem/@g-base;
+			line-height: 60rem/@g-base;
+			color: @g-color-grey2;
+			text-align: center;
+			box-sizing: border-box;
+
+			&.disabled {
+				color: @g-color-grey5;
+			}
+
+			&.active {
+				border: 1px solid @g-color-red;
+				border-radius: 6rem/@g-base;
+				color: @g-color-red;
+			}
+		}
 	}
 }
-
-

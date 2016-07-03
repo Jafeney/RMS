@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="/js/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
+
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{module:'message'}) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			推送管理
+            			<small>Send Manage Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+                        <li class="active"><a href="#"><i class="fa fa-comments"></i> 推送管理</a></li>
+            			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> 新的推送</a></li>
+          			</ol>
+        		</section>
+
+                <!-- Main content -->
+        		<section class="content">
+                    <!-- SELECT2 EXAMPLE -->
+                    <div class="box box-default">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">新的推送</h3>
+
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12" style="padding-top:15px">
+                                    <div class="form-group" style="height:32px">
+                                        <label for="J_news-title" class="col-sm-2 control-label">推送标题</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="J_news-title" placeholder="推送标题">
+                                        </div>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group" style="height:32px">
+                                        <label for="J_news-type" class="col-sm-2 control-label">推送类别</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" id="J_news-type" style="width: 100%;">
+                                                <option>--- 请选择推送类别 ---</option>
+                                                <option data-id="1">餐厅动态</option>
+                                                <option data-id="2">趣闻轶事</option>
+                                                <option data-id="3">优惠活动</option>
+                                                <option data-id="4">企业文化</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group" id="J_card-box" style="height:32px;display:none">
+                                        <label for="J_news-card" class="col-sm-2 control-label">添加优惠券</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control select2" id="J_news-card" style="width: 100%;">
+                                                <script type="text/template" id="J_couponList-tpl">
+                                                    <option data-id="1">--- 请选择要添加的优惠券 ---</option>
+                                                    {@each items as item}
+                                                    <option data-id="${item.id}">${item.name}</option>
+                                                    {@/each}
+                                                </script>
+                                            </select>
+                                        </div>
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group" style="margin-bottom:20px">
+                                        <label for="J_news-img" class="col-sm-2 control-label">推送主图</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" id="J_news-img">
+                                        </div>
+                                        <div class="text-center">
+                                            <img id="J_news-demo" style="margin-top:10px;max-width:97%" src="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="J_news-img" class="col-sm-12 control-label">推送内容</label>
+                                      <div class="col-sm-12">
+                                          <textarea class="form-control" id="J-news-editor" placeholder="Enter ..." style="width: 100%; height: 300px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                      </div>
+
+                                    </div>
+                                </div><!-- /.col -->
+
+                            </div><!-- /.row -->
+                        </div><!-- /.box-body -->
+                        <div class="box-footer" style="padding-bottom:30px;">
+                            <div class="col-sm-12">
+                                <button class="col-sm-5 btn btn-default" id="J_news-reset">重置</button>
+                                <label class="col-sm-1"></label>
+                                <button class="col-sm-5 btn btn-success" id="J_news-submit">确定</button>
+                            </div>
+                        </div>
+                    </div><!-- /.box -->
+                </section>
+            </div>
+
+            <%- include('common/footer.ejs',{module:'message-add'}) %>
+            <!--editor-->
+            <script src="/js/lib/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+            <script>
+                $(function() {
+                    $("#J-news-editor").wysihtml5();
+                });
+            </script>
+        </div>
+    </body>
+</html>

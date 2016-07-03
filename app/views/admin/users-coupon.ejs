@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  	<%- include('common/header.ejs',{}) %>
+    <style>
+        .dataTables_length {
+            margin-bottom: 20px;
+        }
+        .dataTables_filter {
+            text-align: right;
+        }
+        .input-sm {
+            height: auto !important;
+        }
+        .dataTables_paginate {
+            text-align: right;
+            font-size: 12px !important;
+        }
+    </style>
+  	<body class="hold-transition skin-blue sidebar-mini">
+    	<div class="wrapper">
+      		<%- include('common/headerSide.ejs',{module:'users'}) %>
+
+      		<!-- Content Wrapper. Contains page content -->
+      		<div class="content-wrapper">
+        		<!-- Content Header (Page header) -->
+        		<section class="content-header">
+          			<h1>
+            			会员管理
+            			<small>Users Manage Page</small>
+          			</h1>
+          			<ol class="breadcrumb">
+            			<li><i class="fa fa-dashboard"></i> 系统控制台</li>
+                        <li class="active"><a href="#"><i class="fa fa-users"></i> 会员管理</a></li>
+            			<li class="active"><a href="#"><i class="fa fa-circle-o"></i> 优惠券</a></li>
+          			</ol>
+        		</section>
+
+                <!-- Main content -->
+        		<section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">
+                                        优惠券
+                                    </h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <table id="J_data-list" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>优惠券名称</th>
+                                                <th>简介</th>
+                                                <th>折扣</th>
+                                                <th>限制</th>
+                                                <th>优惠码前缀</th>
+                                                <th>有效期</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="J_data-items">
+                                        </tbody>
+                                    </table>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </section>
+            </div>
+
+            <!-- data items template -->
+            <script type="text/template" id="J_tpl-data-items" >
+                {@each items as item}
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.detail}</td>
+                    <td>${item.discount}折</td>
+                    <td>${item.limit}人</td>
+                    <td>${item.code}</td>
+                    <td>${item.beginTime} ~ ${item.endTime}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" data-id="${item.id}" class="btn btn-sm btn-default J_btn-edit"><i class="fa fa-edit"></i> 编辑</button>
+                            <button type="button" data-id="${item.id}" class="btn btn-sm btn-danger J_btn-delete"><i class="fa fa-close"></i> 删除</button>
+                        </div>
+                    </td>
+                </tr>
+                {@/each}
+            </script>
+            <!--/ food item template -->
+
+            <%- include('common/footer.ejs',{module:'users-coupon'}) %>
+        </div>
+    </body>
+</html>
